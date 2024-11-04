@@ -1,1 +1,59 @@
-<p>admin-user works!</p>
+<div>
+
+    <div class="header">
+        <h3>User</h3>
+        <div>
+            <mat-icon>search</mat-icon>
+            <mat-icon>filter_alt</mat-icon>
+            <mat-icon>download_2</mat-icon>
+        </div>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="profileImage">
+            <th mat-header-cell *matHeaderCellDef> Profile Image </th>
+            <td mat-cell *matCellDef="let element"> 
+                <img [src]="element.profileImage" alt="profileImage" class="image">
+            </td>
+          </ng-container>
+      
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="phNo">
+          <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.phNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NRCNO">
+            <th mat-header-cell *matHeaderCellDef> NRC NO. </th>
+            <td mat-cell *matCellDef="let element"> {{element.NRCNO}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+    </mat-paginator>
+</div>

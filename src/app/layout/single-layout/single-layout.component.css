@@ -15,3 +15,6 @@ mat-drawer{
 .example-container{
     height: calc(100% - 7%);
 }
+mat-drawer-content{
+    padding: 1rem 3rem;
+}
