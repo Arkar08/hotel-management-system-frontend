@@ -58,12 +58,12 @@ const routes: Routes = [
       {
         path:'receptionist/transaction',
         component:StaffTransactionComponent
+      },
+      {
+        path:'logout',
+        component:LogoutComponent
       }
     ]
-  },
-  {
-    path:'logout',
-    component:LogoutComponent
   },
   {
     path:'**',

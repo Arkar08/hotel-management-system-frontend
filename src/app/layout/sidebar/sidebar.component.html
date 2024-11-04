@@ -1,1 +1,45 @@
-<p>sidebar works!</p>
+<div class="main" *ngIf="role === 'admin'">
+    <a routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+    </a>
+    <a routerLink="/admin/customer" routerLinkActive="active">
+        <mat-icon>person</mat-icon>
+        <span>User</span>
+    </a>
+    <a routerLink="/admin/room" routerLinkActive="active">
+        <mat-icon>hotel</mat-icon>
+        <span>Room</span>
+    </a>
+    <a routerLink="/admin/transaction" routerLinkActive="active">
+        <mat-icon>receipt_long</mat-icon>
+        <span>Transaction</span>
+    </a>
+    <a routerLink="/logout" routerLinkActive="active">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </a>
+</div>
+
+<div class="main" *ngIf="role === 'receptionist'">
+    <a routerLink="/receptionist/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+    </a>
+    <a routerLink="/receptionist/customer" routerLinkActive="active">
+        <mat-icon>person</mat-icon>
+        <span>User</span>
+    </a>
+    <a routerLink="/receptionist/room" routerLinkActive="active">
+        <mat-icon>hotel</mat-icon>
+        <span>Room</span>
+    </a>
+    <a routerLink="/receptionist/transaction" routerLinkActive="active">
+        <mat-icon>receipt_long</mat-icon>
+        <span>Transaction</span>
+    </a>
+    <a routerLink="/logout" routerLinkActive="active">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </a>
+</div>

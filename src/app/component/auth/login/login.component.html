@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="header">
+    <div class="main">
+        <h4>Hotel Management System</h4>
+        <form>
+            <h3>Login</h3>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Name" [(ngModel)]="email" name="email" autocomplete="off">
+                </mat-form-field>
+                <div>
+                    <p *ngIf="statement || filterEmail">*Email is required.</p>
+                </div>
+            </div>
+            <div>
+                <mat-form-field class="password">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [(ngModel)]="password" name="password" autocomplete="off">
+                    <mat-icon class="icon" (click)="view()">{{hide ? "visibility_off":"visibility" }}</mat-icon>
+                </mat-form-field>
+                <div>
+                    <p *ngIf="statement || filterPassword">*Password is required.</p>
+                </div>
+            </div>
+            <div class="btn">
+                <button mat-raised-button (click)="login()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

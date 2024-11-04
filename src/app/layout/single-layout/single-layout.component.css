@@ -1,0 +1,17 @@
+mat-toolbar{
+    padding: 0rem 2rem;
+    height: 7%;
+}
+h3{
+    font-size: 24px;
+    font-weight: 500;
+    padding-right: 1rem;
+    color: var(--primary-color);
+}
+
+mat-drawer{
+    width: 16%;
+}
+.example-container{
+    height: calc(100% - 7%);
+}

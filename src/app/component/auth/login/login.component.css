@@ -1,0 +1,72 @@
+.header{
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.main{
+    position: relative;
+}
+
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    max-width: 440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 5px var(--primary-color);
+    padding: 1rem;
+    border-radius: 10px;
+}
+h4{
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    letter-spacing: 5px;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    user-select: none;
+}
+h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color);
+    user-select: none;
+}
+ mat-form-field{
+    width: 100%;
+ }
+ .password{
+    position: relative;
+ }
+ .icon{
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    cursor: pointer;
+ }
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rem;
+}
+button{
+    width: 70%;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+}
+p{
+    color: var(--secondary-color);
+}

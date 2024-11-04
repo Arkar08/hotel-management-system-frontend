@@ -18,6 +18,7 @@ import { StaffDashboardComponent } from './pages/staff/staff-dashboard/staff-das
 import { LogoutComponent } from './component/logout/logout.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminUserComponent } from './pages/admin/admin-user/admin-user.componen
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    material
+    material,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
