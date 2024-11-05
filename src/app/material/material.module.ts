@@ -14,6 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export const material = [
   MatButtonModule,
@@ -29,7 +30,8 @@ export const material = [
   MatPaginatorModule,
   MatDialogModule,
   MatCardModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatCheckboxModule
 ]
 
 

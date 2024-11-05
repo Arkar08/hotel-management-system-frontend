@@ -1,0 +1,64 @@
+<div class="main">
+    <h3>Create Room</h3>
+</div>
+<div class="container-fluid p-3">
+    <div class="row row-cols-2 mt-1">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input type="text" matInput placeholder="example room" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Room Numbers</mat-label>
+                <input type="number" matInput placeholder="100" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2 mt-1">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Max People</mat-label>
+                <input type="number" matInput placeholder="0" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input type="number" matInput placeholder="0" autocomplete="off" >
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-1 mt-1">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input type="text" matInput placeholder="description" autocomplete="off">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2 mt-1">
+        <div class="col-4 multiple">
+            <label for="upload" class="upload">
+                <mat-icon class="upload_icon">upload_file</mat-icon>
+                <span>Upload</span>
+            </label>
+            <input type="file" hidden id="upload" multiple>
+        </div>
+        <div class="col-8">
+            <div class="container">
+                <div class="row row-cols-2 file">
+                    <div class="col images"></div>
+                    <div class="col images"></div>
+                    <div class="col images"></div>
+                    <div class="col images"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn_group m-3">
+        <button class="cancel" mat-raised-button>Cancel</button>
+        <button class="save" mat-raised-button>Save</button>
+    </div>
+</div>

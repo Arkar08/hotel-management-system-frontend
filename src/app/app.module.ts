@@ -18,7 +18,15 @@ import { StaffDashboardComponent } from './pages/staff/staff-dashboard/staff-das
 import { LogoutComponent } from './component/logout/logout.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { CreateRoomComponent } from './models/create-room/create-room.component';
+import { FilterRoomComponent } from './models/filter-room/filter-room.component';
+import { FilterUserComponent } from './models/filter-user/filter-user.component';
+import { FilterTransactionComponent } from './models/filter-transaction/filter-transaction.component';
+import { EditRoomComponent } from './models/edit-room/edit-room.component';
+import { DeleteAdminRoomComponent } from './models/delete-admin-room/delete-admin-room.component';
+import { ViewUserComponent } from './models/view-user/view-user.component';
+import { ViewTransactionComponent } from './models/view-transaction/view-transaction.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +45,14 @@ import {FormsModule} from '@angular/forms'
     SidebarComponent,
     SingleLayoutComponent,
     AdminUserComponent,
+    CreateRoomComponent,
+    FilterRoomComponent,
+    FilterUserComponent,
+    FilterTransactionComponent,
+    EditRoomComponent,
+    DeleteAdminRoomComponent,
+    ViewUserComponent,
+    ViewTransactionComponent,
   ],
   imports: [
     BrowserModule,

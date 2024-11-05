@@ -3,15 +3,77 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 :root{
    --primary-color:green;
    --secondary-color:red;
    --table-head-color:rgb(94, 236, 94);
+}
+table tbody td tr{
+    text-wrap: nowrap !important;
+}
+.mdc-data-table__cell{
+    text-align: center !important;
+}
+.mdc-data-table__header-cell{
+    text-align: center !important;
+    font-size: 18px;
+    font-weight: 500;
+    color: white !important;
+}
+table th{
+    background-color: var(--table-head-color) !important;
+}
+.middle{
+    height: calc(100vh - 200px);
+    overflow: auto;
+}
+mat-paginator{
+    position:absolute;
+    bottom: 2%;
+    right: 3%;
+    width: 100%;
+}
+.btn_group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cancel{
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+    width: 100px;
+    margin-right: 1rem;
+}
+.save{
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    width: 100px;
+}
+.reset{
+    background-color: var(--secondary-color) !important;
+    width: 100px;
+    color: white !important;
+    margin-right: 1rem;
+}
+.apply{
+    background-color: blue !important;
+    width: 100px;
+    color: white !important;
+}
+@media (max-width:1551px) {
+    .mat-mdc-row, .mdc-data-table__content{
+        height: 48px !important;
+    }
+    .mat-mdc-header-row{
+        height: 40px !important;
+    }
+    .mdc-data-table__header-cell{
+        font-size: 14px;
+        font-weight: 500;
+    }
 }

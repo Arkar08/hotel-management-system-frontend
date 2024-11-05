@@ -1,0 +1,47 @@
+.main{
+    margin-top: 1rem;
+}
+
+h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary-color) !important;
+}
+p{
+    font-size: 18px;
+    font-weight: 400;
+}
+.date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.header{
+    margin-top: 1rem;
+}
+.room{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+label{
+    font-size: 18px;
+    font-weight: 400;
+}
+input{
+    padding: 15px 10px;
+    width: 60%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: beige;
+}
+.print{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 2rem;
+}

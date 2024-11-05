@@ -1,0 +1,53 @@
+.main{
+    margin-top: 1rem;
+}
+
+h3{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--primary-color) !important;
+}
+.image_container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.images{
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+    border-radius: 10px;
+}
+p{
+    font-size: 24px;
+    font-weight: 400;
+}
+span{
+    font-size: 18px;
+    font-weight: 400;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+label{
+    margin-bottom: 1rem;
+    font-size: 18px;
+    font-weight: 500;
+}
+input{
+    width: 100%;
+    padding:15px 10px;
+    background-color: beige;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.print{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 2rem;
+}
