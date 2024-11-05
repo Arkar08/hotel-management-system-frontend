@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    font-size: 32px;
+    font-weight: 400;
+}
+mat-icon{
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    cursor: pointer;
+}
+.view{
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    color: blue !important;
+}
+.active{
+    text-align: left !important;
+}
+.on_toggle{
+    color: green !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 48px;
+}
+.off_toggle{
+    color:red !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 48px;
+}
