@@ -30,6 +30,7 @@ import { ViewTransactionComponent } from './models/view-transaction/view-transac
 import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.component';
 import { FilterOrderComponent } from './models/filter-order/filter-order.component';
 import { CreateTransactionComponent } from './models/create-transaction/create-transaction.component';
+import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CreateTransactionComponent } from './models/create-transaction/create-t
     StaffOrderComponent,
     FilterOrderComponent,
     CreateTransactionComponent,
+    AdminOrderlistingComponent,
   ],
   imports: [
     BrowserModule,

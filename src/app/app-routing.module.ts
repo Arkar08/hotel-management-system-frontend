@@ -1,3 +1,4 @@
+import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
 import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.component';
 import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
 import { SingleLayoutComponent } from './layout/single-layout/single-layout.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path:'admin/customer',
         component:AdminUserComponent
+      },
+      {
+        path:'admin/orderlistings',
+        component:AdminOrderlistingComponent
       },
       {
         path:'admin/transaction',

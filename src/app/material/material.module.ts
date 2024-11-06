@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog'
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 export const material = [
   MatButtonModule,
@@ -31,7 +32,8 @@ export const material = [
   MatDialogModule,
   MatCardModule,
   MatBadgeModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTabsModule
 ]
 
 
