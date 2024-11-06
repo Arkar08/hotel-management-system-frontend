@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    font-size: 32px;
+    font-weight: 400;
+}
+mat-icon{
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    cursor: pointer;
+}
+.icon{
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+.icon:nth-child(1){
+    color: blue !important;
+    margin-right: 0.5rem;
+}
+.icon:nth-child(2){
+    color: var(--secondary-color) !important;
+}

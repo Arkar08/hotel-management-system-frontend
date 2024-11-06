@@ -18,3 +18,10 @@ mat-icon{
     height: 24px;
     color: blue !important;
 }
+button{
+    height: 25px !important;
+    width: 80px;
+}
+button:first-child{
+    margin-right: 0.5rem;
+}

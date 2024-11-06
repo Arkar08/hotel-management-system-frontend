@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { ViewUserComponent } from './../../../models/view-user/view-user.component';
+import { MatDialog } from '@angular/material/dialog';
+import { FilterUserComponent } from './../../../models/filter-user/filter-user.component';
+import { Component, OnInit } from '@angular/core';
 
 
 export interface PeriodicElement {
@@ -31,7 +34,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './staff-customer.component.html',
   styleUrls: ['./staff-customer.component.css']
 })
-export class StaffCustomerComponent {
+export class StaffCustomerComponent implements OnInit {
+  constructor(private dialog:MatDialog){}
+  ngOnInit(): void {
+
+  }
   displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','isActive','action'];
   dataSource = ELEMENT_DATA;
+
+  filter(){
+    this.dialog.open(FilterUserComponent,{
+      width:'900px'
+    })
+  }
+
+  view(){
+    this.dialog.open(ViewUserComponent,{
+      width:'900px'
+    })
+  }
+
+
 }

@@ -1,3 +1,4 @@
+import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.component';
 import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
 import { SingleLayoutComponent } from './layout/single-layout/single-layout.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path:'receptionist/transaction',
         component:StaffTransactionComponent
+      },
+      {
+        path:'receptionist/orderList',
+        component:StaffOrderComponent
       },
       {
         path:'logout',

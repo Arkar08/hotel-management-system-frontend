@@ -13,7 +13,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
    --secondary-color:red;
    --table-head-color:rgb(94, 236, 94);
 }
-table tbody td tr{
+.header{
+    padding:1rem 1rem 0rem 1rem;
+}
+table thead tr{
+    text-wrap: nowrap !important;
+}
+table tbody tr{
     text-wrap: nowrap !important;
 }
 .mdc-data-table__cell{
@@ -29,13 +35,15 @@ table th{
     background-color: var(--table-head-color) !important;
 }
 .middle{
-    height: calc(100vh - 200px);
+    width: 100%;
+    height: calc(100vh - 190px);
     overflow: auto;
+    padding-left: 1rem;
 }
 mat-paginator{
     position:absolute;
-    bottom: 2%;
-    right: 3%;
+    bottom: 1%;
+    right: 0%;
     width: 100%;
 }
 .btn_group{

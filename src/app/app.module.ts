@@ -27,6 +27,9 @@ import { EditRoomComponent } from './models/edit-room/edit-room.component';
 import { DeleteAdminRoomComponent } from './models/delete-admin-room/delete-admin-room.component';
 import { ViewUserComponent } from './models/view-user/view-user.component';
 import { ViewTransactionComponent } from './models/view-transaction/view-transaction.component';
+import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.component';
+import { FilterOrderComponent } from './models/filter-order/filter-order.component';
+import { CreateTransactionComponent } from './models/create-transaction/create-transaction.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { ViewTransactionComponent } from './models/view-transaction/view-transac
     DeleteAdminRoomComponent,
     ViewUserComponent,
     ViewTransactionComponent,
+    StaffOrderComponent,
+    FilterOrderComponent,
+    CreateTransactionComponent,
   ],
   imports: [
     BrowserModule,

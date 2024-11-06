@@ -1,0 +1,83 @@
+<div class="main">
+    <h3>Create Transaction</h3>
+</div>
+
+<div class="container-fluid p-3">
+    <div class="row row-cols-2">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Customer Order No</mat-label>
+                <input type="text" matInput autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Customer Name</mat-label>
+                <input type="text" matInput disabled value="Arkar">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Room Number</mat-label>
+                <input type="text" matInput disabled value="101">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Room Price</mat-label>
+                <input type="text" matInput disabled value="10000">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>General Checking</mat-label>
+                <input type="number" matInput autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Tax</mat-label>
+                <input type="number" matInput disabled value="100">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>From Date</mat-label>
+                <input type="date" matInput>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>To Date</mat-label>
+                <input type="date" matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Payment Type</mat-label>
+                <mat-select>
+                    <mat-option>Cash</mat-option>
+                    <mat-option>Banking</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Total</mat-label>
+                <input type="number" matInput disabled value="15150">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="btn_group m-3">
+        <button class="cancel" mat-raised-button>Cancel</button>
+        <button class="save" mat-raised-button>Save</button>
+    </div>
+</div>
