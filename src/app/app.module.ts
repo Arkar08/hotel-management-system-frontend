@@ -1,3 +1,5 @@
+import { AuthguardService } from './service/authguard.service';
+import { ApiService } from './service/api.service';
 import { SingleLayoutComponent } from './layout/single-layout/single-layout.component';
 import { material } from './material/material.module';
 import { NgModule } from '@angular/core';
@@ -31,6 +33,7 @@ import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.compo
 import { FilterOrderComponent } from './models/filter-order/filter-order.component';
 import { CreateTransactionComponent } from './models/create-transaction/create-transaction.component';
 import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -67,9 +70,10 @@ import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/adm
     AppRoutingModule,
     BrowserAnimationsModule,
     material,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService,AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

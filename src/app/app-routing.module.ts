@@ -1,3 +1,5 @@
+import { authGuard } from './component/auth/auth.guard';
+import { AuthguardService } from './service/authguard.service';
 import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
 import { StaffOrderComponent } from './pages/staff/staff-order/staff-order.component';
 import { AdminUserComponent } from './pages/admin/admin-user/admin-user.component';
@@ -31,47 +33,58 @@ const routes: Routes = [
     children:[
       {
         path:'admin/dashboard',
-        component:AdminDashboardComponent
+        component:AdminDashboardComponent,
+        canActivate:[authGuard]
       },
       {
         path:'admin/room',
-        component:AdminRoomComponent
+        component:AdminRoomComponent,
+        canActivate:[authGuard]
       },
       {
         path:'admin/customer',
-        component:AdminUserComponent
+        component:AdminUserComponent,
+        canActivate:[authGuard]
       },
       {
         path:'admin/orderlistings',
-        component:AdminOrderlistingComponent
+        component:AdminOrderlistingComponent,
+        canActivate:[authGuard]
       },
       {
         path:'admin/transaction',
-        component:AdminTransactionComponent
+        component:AdminTransactionComponent,
+        canActivate:[authGuard]
       },
       {
         path:'receptionist/dashboard',
-        component:StaffDashboardComponent
+        component:StaffDashboardComponent,
+        canActivate:[authGuard]
       },
       {
         path:'receptionist/customer',
-        component:StaffCustomerComponent
+        component:StaffCustomerComponent,
+        canActivate:[authGuard]
       },
       {
         path:'receptionist/room',
-        component:StaffRoomComponent
+        component:StaffRoomComponent,
+        canActivate:[authGuard]
       },
       {
         path:'receptionist/transaction',
-        component:StaffTransactionComponent
+        component:StaffTransactionComponent,
+        canActivate:[authGuard]
       },
       {
         path:'receptionist/orderList',
-        component:StaffOrderComponent
+        component:StaffOrderComponent,
+        canActivate:[authGuard]
       },
       {
         path:'logout',
-        component:LogoutComponent
+        component:LogoutComponent,
+        canActivate:[authGuard]
       }
     ]
   },

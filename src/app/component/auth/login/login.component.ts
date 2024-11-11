@@ -1,3 +1,5 @@
+import { AuthguardService } from './../../../service/authguard.service';
+import { ApiService } from './../../../service/api.service';
 import { Component,OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 
@@ -18,9 +20,12 @@ export class LoginComponent implements OnInit {
   filterEmail:boolean = false;
   filterPassword:boolean = false;
 
-  constructor(private router:Router){}
-  ngOnInit(): void {
+  loginData: any;
 
+
+  constructor(private router:Router,private service:ApiService,private authService:AuthguardService){}
+  ngOnInit(): void {
+    history.pushState(null,'')
   }
 
   view(){
@@ -28,20 +33,26 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log('hello',this.email)
-    console.log('password is',this.password)
-    if(this.email === 'admin@gmail.com' && this.password === 'admin'){
-      localStorage.setItem('role','admin')
-      this.router.navigateByUrl('admin/dashboard')
-    }else if(this.email === '' && this.password === ''){
-      this.statement = true;
-    }else if(this.email === '' && this.password !== ''){
-      this.filterEmail = true;
-    }else if(this.email !== '' && this.password === ''){
-      this.filterPassword = true;
-    }else if (this.email !== '' && this.password !== ''){
-      localStorage.setItem('role','receptionist')
-      this.router.navigateByUrl('receptionist/dashboard')
+    this.loginDetails = {
+      email:this.email,
+      password:this.password
     }
+    this.service.postData("users/login",this.loginDetails).subscribe((res:any)=>{
+      this.authService.login()
+      this.loginData = res;
+      localStorage.setItem('token',this.loginData.token)
+      if(this.loginData.role === 'receptionist'){
+        localStorage.setItem('role','receptionist')
+        this.router.navigateByUrl('receptionist/dashboard')
+      }else if(this.loginData.role === 'admin'){
+        localStorage.setItem('role','admin')
+        this.router.navigateByUrl('admin/dashboard')
+      }
+    },error=>{
+      if(error){
+        this.statement = true;
+      }
+    })
+  
   }
 }
