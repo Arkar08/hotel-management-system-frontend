@@ -30,61 +30,51 @@ const routes: Routes = [
   {
     path:'',
     component:SingleLayoutComponent,
+    canActivate:[authGuard],
     children:[
       {
         path:'admin/dashboard',
-        component:AdminDashboardComponent,
-        canActivate:[authGuard]
+        component:AdminDashboardComponent
       },
       {
         path:'admin/room',
-        component:AdminRoomComponent,
-        canActivate:[authGuard]
+        component:AdminRoomComponent
       },
       {
         path:'admin/customer',
-        component:AdminUserComponent,
-        canActivate:[authGuard]
+        component:AdminUserComponent
       },
       {
         path:'admin/orderlistings',
-        component:AdminOrderlistingComponent,
-        canActivate:[authGuard]
+        component:AdminOrderlistingComponent
       },
       {
         path:'admin/transaction',
-        component:AdminTransactionComponent,
-        canActivate:[authGuard]
+        component:AdminTransactionComponent
       },
       {
         path:'receptionist/dashboard',
-        component:StaffDashboardComponent,
-        canActivate:[authGuard]
+        component:StaffDashboardComponent
       },
       {
         path:'receptionist/customer',
-        component:StaffCustomerComponent,
-        canActivate:[authGuard]
+        component:StaffCustomerComponent
       },
       {
         path:'receptionist/room',
-        component:StaffRoomComponent,
-        canActivate:[authGuard]
+        component:StaffRoomComponent
       },
       {
         path:'receptionist/transaction',
-        component:StaffTransactionComponent,
-        canActivate:[authGuard]
+        component:StaffTransactionComponent
       },
       {
         path:'receptionist/orderList',
-        component:StaffOrderComponent,
-        canActivate:[authGuard]
+        component:StaffOrderComponent
       },
       {
         path:'logout',
-        component:LogoutComponent,
-        canActivate:[authGuard]
+        component:LogoutComponent
       }
     ]
   },

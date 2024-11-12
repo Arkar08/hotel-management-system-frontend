@@ -10,9 +10,9 @@
     <div class="middle">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <ng-container matColumnDef="orderNo">
+          <th mat-header-cell *matHeaderCellDef> orderNo. </th>
+          <td mat-cell *matCellDef="let element"> {{element.orderNo}} </td>
         </ng-container>
 
         <ng-container matColumnDef="customerName">
@@ -37,17 +37,17 @@
 
         <ng-container matColumnDef="startDate">
           <th mat-header-cell *matHeaderCellDef> From Date </th>
-          <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.fromDate}} </td>
         </ng-container>
 
         <ng-container matColumnDef="endDate">
             <th mat-header-cell *matHeaderCellDef> To Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.toDate}} </td>
         </ng-container>
 
         <ng-container matColumnDef="description">
             <th mat-header-cell *matHeaderCellDef> Description </th>
-            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.description || " _ "}} </td>
           </ng-container>
 
         <ng-container matColumnDef="status">

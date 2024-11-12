@@ -16,9 +16,7 @@ export class ApiService {
 
   postData(url:string,data:any):Observable<any>{
     const dataUrl = Api_Url + url;
-    return this.http.post<any>(dataUrl , data,{
-      withCredentials: true
-    })
+    return this.http.post<any>(dataUrl , data)
   }
 
   getData(url:string):Observable<any>{
