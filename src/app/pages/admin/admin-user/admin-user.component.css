@@ -2,10 +2,7 @@
     display: flex;
     justify-content: space-between;
 }
-h3{
-    font-size: 32px;
-    font-weight: 400;
-}
+
 mat-icon{
     width: 40px;
     height: 40px;

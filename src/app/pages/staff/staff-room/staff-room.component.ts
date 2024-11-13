@@ -35,6 +35,7 @@ export interface PeriodicElement {
   styleUrls: ['./staff-room.component.css']
 })
 export class StaffRoomComponent implements OnInit {
+  loading:boolean = true;
   constructor(private dialog:MatDialog,private service:ApiService){}
   ngOnInit(): void {
     this.getRoom()
@@ -51,7 +52,9 @@ export class StaffRoomComponent implements OnInit {
   }
 
   getRoom(){
+    this.loading = true;
     this.service.getData('rooms').subscribe((res:any)=>{
+      this.loading = false;
       this.generateTable(res)
     },error=>{
       console.log(error,'room error is')

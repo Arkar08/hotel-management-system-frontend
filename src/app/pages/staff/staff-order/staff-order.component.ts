@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
+  id:number;
   orderNo:string;
   customerName:string;
   roomNumber:number;
@@ -14,6 +15,7 @@ export interface PeriodicElement {
   roomPrice:number;
   maxPeople:number;
   description:string;
+  roomName:string;
 }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
@@ -35,14 +37,14 @@ export interface PeriodicElement {
   styleUrls: ['./staff-order.component.css']
 })
 export class StaffOrderComponent implements OnInit {
-
+  loading:boolean = true;
   constructor(private dialog:MatDialog,private service:ApiService){}
 
   ngOnInit(): void {
     this.getOrder();
   }
 
-  displayedColumns: string[] = ['orderNo','customerName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status','action'];
+  displayedColumns: string[] = ['id','orderNo','customerName','roomName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status','action'];
   dataSource:any;
 
   filter(){
@@ -52,7 +54,9 @@ export class StaffOrderComponent implements OnInit {
   }
 
   getOrder(){
-    this.service.getData('orders').subscribe((res:any)=>{
+    this.loading = true;
+    this.service.getData('staff/orders').subscribe((res:any)=>{
+      this.loading = false;
       this.generateTable(res)
     },error=>{
       console.log(error , 'order error is')

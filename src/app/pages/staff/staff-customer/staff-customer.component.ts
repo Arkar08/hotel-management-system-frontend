@@ -16,6 +16,7 @@ export interface PeriodicElement {
   address:string;
   date:string;
   isActive:boolean;
+  role:string;
 }
 
 
@@ -27,11 +28,12 @@ export interface PeriodicElement {
 export class StaffCustomerComponent implements OnInit {
 
   allUsers:any[]=[];
+  loading:boolean = true;
   constructor(private dialog:MatDialog,private service:ApiService){}
   ngOnInit(): void {
     this.getUser()
   }
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','isActive','action'];
+  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','isActive','action'];
   dataSource :any;
 
   filter(){
@@ -47,7 +49,9 @@ export class StaffCustomerComponent implements OnInit {
   }
 
   getUser(){
+    this.loading = true;
     this.service.getData('users').subscribe((res:any)=>{
+      this.loading = false;
       console.log(res)
       this.allUsers = res;
       this.generateTable(this.allUsers)

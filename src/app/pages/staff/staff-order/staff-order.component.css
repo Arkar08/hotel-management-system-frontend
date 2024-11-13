@@ -2,10 +2,7 @@
     display: flex;
     justify-content: space-between;
 }
-h3{
-    font-size: 32px;
-    font-weight: 400;
-}
+
 mat-icon{
     width: 40px;
     height: 40px;
@@ -24,4 +21,16 @@ button{
 }
 button:first-child{
     margin-right: 0.5rem;
+}
+.actionGroup{
+    box-shadow: 0px 0px 1px black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action{
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 10px;
 }
