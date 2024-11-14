@@ -1,3 +1,5 @@
+import { MatTableDataSource } from '@angular/material/table';
+import { ApiService } from './../../../service/api.service';
 import { ViewUserComponent } from './../../../models/view-user/view-user.component';
 import { FilterUserComponent } from './../../../models/filter-user/filter-user.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,18 +17,18 @@ export interface PeriodicElement {
   isActive:boolean;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {id: 1, fullName: 'Hydrogen', phNo: "1.0079", profileImage: 'H',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 2, fullName: 'Helium', phNo: "4.0026", profileImage: 'He',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 3, fullName: 'Lithium', phNo: "6.941", profileImage: 'Li',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 4, fullName: 'Beryllium', phNo: "9.0122", profileImage: 'Be',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:false},
-  {id: 5, fullName: 'Boron', phNo: "10.811", profileImage: 'B',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 6, fullName: 'Carbon', phNo: "12.0107", profileImage: 'C',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 7, fullName: 'Nitrogen', phNo: "14.0067", profileImage: 'N',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 8, fullName: 'Oxygen', phNo: "15.9994", profileImage: 'O',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 9, fullName: 'Fluorine', phNo: "18.9984", profileImage: 'F',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-  {id: 10, fullName: 'Neon', phNo: "20.1797", profileImage: 'Ne',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
-];
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {id: 1, fullName: 'Hydrogen', phNo: "1.0079", profileImage: 'H',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 2, fullName: 'Helium', phNo: "4.0026", profileImage: 'He',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 3, fullName: 'Lithium', phNo: "6.941", profileImage: 'Li',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 4, fullName: 'Beryllium', phNo: "9.0122", profileImage: 'Be',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:false},
+//   {id: 5, fullName: 'Boron', phNo: "10.811", profileImage: 'B',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 6, fullName: 'Carbon', phNo: "12.0107", profileImage: 'C',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 7, fullName: 'Nitrogen', phNo: "14.0067", profileImage: 'N',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 8, fullName: 'Oxygen', phNo: "15.9994", profileImage: 'O',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 9, fullName: 'Fluorine', phNo: "18.9984", profileImage: 'F',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+//   {id: 10, fullName: 'Neon', phNo: "20.1797", profileImage: 'Ne',email: 'Hydrogen', address: "1.0079", NRCNO: 'H',date:'134567',isActive:true},
+// ];
 
 
 @Component({
@@ -35,12 +37,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./admin-user.component.css']
 })
 export class AdminUserComponent implements OnInit {
-  constructor(private dialog:MatDialog){}
+  constructor(private dialog:MatDialog , private service:ApiService){}
   ngOnInit(): void {
+    this.getUser()
   }
 
   displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','isActive','action'];
-  dataSource = ELEMENT_DATA;
+  dataSource:any;
 
 
   filter(){
@@ -54,4 +57,18 @@ export class AdminUserComponent implements OnInit {
       width:'900px'
     })
   }
+
+  getUser(){
+    this.service.getData('users').subscribe((res:any)=>{
+      this.generateTable(res)
+    },error =>{
+      console.log(error , 'error is')
+    })
+  }
+
+  generateTable(data:any){
+    this.dataSource = new MatTableDataSource<PeriodicElement>(data)
+  }
+
+
 } 

@@ -1,3 +1,5 @@
+import { MatTableDataSource } from '@angular/material/table';
+import { ApiService } from './../../../service/api.service';
 import { DeleteAdminRoomComponent } from './../../../models/delete-admin-room/delete-admin-room.component';
 import { EditRoomComponent } from './../../../models/edit-room/edit-room.component';
 import { FilterRoomComponent } from './../../../models/filter-room/filter-room.component';
@@ -37,13 +39,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./admin-room.component.css']
 })
 export class AdminRoomComponent implements OnInit {
-  constructor(private dialog:MatDialog){}
+  constructor(private dialog:MatDialog , private service:ApiService){}
   ngOnInit(): void {
-
+    this.getRoom()
   }
 
   displayedColumns: string[] = ['id','images','title', 'price', 'roomNumbers', 'maxPeople','description','status','action'];
-  dataSource = ELEMENT_DATA;
+  dataSource:any;
 
   create(){
     this.dialog.open(CreateRoomComponent,{
@@ -69,4 +71,15 @@ export class AdminRoomComponent implements OnInit {
     })
   }
 
+  getRoom(){
+    this.service.getData('rooms').subscribe((res:any)=>{
+      this.generateTable(res)
+    },error => {
+      console.log(error , 'room is')
+    })
+  }
+
+  generateTable(data:any){
+    this.dataSource = new MatTableDataSource<PeriodicElement>(data)
+  }
 }

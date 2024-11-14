@@ -6,13 +6,13 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <input type="text" matInput placeholder="example room" autocomplete="off">
+                <input type="text" matInput placeholder="example room" autocomplete="off" [(ngModel)]="title">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Numbers</mat-label>
-                <input type="number" matInput placeholder="100" autocomplete="off">
+                <input type="number" matInput placeholder="100" autocomplete="off" [(ngModel)]="roomNumber">
             </mat-form-field>
         </div>
     </div>
@@ -20,13 +20,13 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Max People</mat-label>
-                <input type="number" matInput placeholder="0" autocomplete="off">
+                <input type="number" matInput placeholder="0" autocomplete="off" [(ngModel)]="maxPeople">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Price</mat-label>
-                <input type="number" matInput placeholder="0" autocomplete="off" >
+                <input type="number" matInput placeholder="0" autocomplete="off" [(ngModel)]="price">
             </mat-form-field>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Description</mat-label>
-                <input type="text" matInput placeholder="description" autocomplete="off">
+                <input type="text" matInput placeholder="description" autocomplete="off" [(ngModel)]="description">
             </mat-form-field>
         </div>
     </div>
