@@ -46,7 +46,7 @@
         </div>
         <div class="col">
             <mat-form-field>
-                <mat-label>Tax</mat-label>
+                <mat-label>Tax(5%)</mat-label>
                 <input type="number" matInput disabled [value]="totalAmount.tax || 0">
             </mat-form-field>
         </div>
@@ -55,7 +55,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>From Date</mat-label>
-                <input type="date" matInput>
+                <input type="date" matInput (change)="dateChange($event)">
             </mat-form-field>
         </div>
         <div class="col">
@@ -70,8 +70,8 @@
             <mat-form-field>
                 <mat-label>Payment Type</mat-label>
                 <mat-select>
-                    <mat-option>Cash</mat-option>
-                    <mat-option>Banking</mat-option>
+                    <mat-option value="Cash">Cash</mat-option>
+                    <mat-option value="Banking">Banking</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

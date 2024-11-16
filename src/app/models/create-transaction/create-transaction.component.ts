@@ -90,4 +90,8 @@ export class CreateTransactionComponent implements OnInit {
       })
     }
   }
+
+  dateChange(data:any){
+    console.log(data)
+  }
 }
