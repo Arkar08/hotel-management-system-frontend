@@ -36,6 +36,7 @@ import { CreateTransactionComponent } from './models/create-transaction/create-t
 import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
 import { HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -73,12 +74,13 @@ import { DatePipe } from '@angular/common';
     BrowserAnimationsModule,
     material,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenService, multi: true
-  },ApiService,AuthguardService,DatePipe],
+  },ApiService,AuthguardService,DatePipe,BsDatepickerConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

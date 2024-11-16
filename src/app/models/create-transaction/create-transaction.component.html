@@ -40,28 +40,38 @@
     <div class="row row-cols-2">
         <div class="col">
             <mat-form-field>
-                <mat-label>General Checking</mat-label>
-                <input type="number" matInput autocomplete="off" (change)="general($event)" [value]="checking">
+                <mat-label>From Date</mat-label>
+                <input type="text"
+                    placeholder="YYYY-MM-DD"
+                    bsDatepicker
+                    [daysDisabled]="[6,0]"
+                    [value]="fromDate | date: 'yyyy-MM-dd'"
+                    [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="dateChange($event)">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
-                <mat-label>Tax(5%)</mat-label>
-                <input type="number" matInput disabled [value]="totalAmount.tax || 0">
+                <mat-label>To Date</mat-label>
+                <input type="text"
+                    placeholder="YYYY-MM-DD"
+                    bsDatepicker
+                    [daysDisabled]="[6,0]"
+                    [value]="toDate | date: 'yyyy-MM-dd'"
+                    [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="toDateChange($event)">
             </mat-form-field>
         </div>
     </div>
     <div class="row row-cols-2">
         <div class="col">
             <mat-form-field>
-                <mat-label>From Date</mat-label>
-                <input type="date" matInput (change)="dateChange($event)">
+                <mat-label>General Checking</mat-label>
+                <input type="number" matInput autocomplete="off" (change)="general($event)" [value]="checking" [disabled]="show">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
-                <mat-label>To Date</mat-label>
-                <input type="date" matInput>
+                <mat-label>Tax(5%)</mat-label>
+                <input type="number" matInput disabled [value]="totalAmount.tax || 0">
             </mat-form-field>
         </div>
     </div>

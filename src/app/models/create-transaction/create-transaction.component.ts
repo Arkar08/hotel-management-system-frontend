@@ -18,8 +18,10 @@ export class CreateTransactionComponent implements OnInit {
     tax:'',
     total:''
   }
-
+  show:boolean = true;
   checking:any;
+  fromDate:string = ''
+  toDate:string = ''
 
   constructor(private service:ApiService){}
   ngOnInit(): void {
@@ -74,6 +76,7 @@ export class CreateTransactionComponent implements OnInit {
   }
   changeOrderNo(data:any){
     this.loading = true;
+    this.show = false;
     const dataList = data.value;
     console.log(dataList)
     const dataDetails = {
@@ -92,6 +95,11 @@ export class CreateTransactionComponent implements OnInit {
   }
 
   dateChange(data:any){
-    console.log(data)
+    this.fromDate = data;
+    console.log(this.fromDate)
+  }
+  toDateChange(data:any){
+    this.toDate = data;
+    console.log(this.toDate)
   }
 }
