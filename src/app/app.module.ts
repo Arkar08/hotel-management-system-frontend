@@ -35,6 +35,7 @@ import { FilterOrderComponent } from './models/filter-order/filter-order.compone
 import { CreateTransactionComponent } from './models/create-transaction/create-transaction.component';
 import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/admin-orderlisting.component';
 import { HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenService, multi: true
-  },ApiService,AuthguardService],
+  },ApiService,AuthguardService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

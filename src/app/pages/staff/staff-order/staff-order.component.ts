@@ -38,6 +38,9 @@ export interface PeriodicElement {
 })
 export class StaffOrderComponent implements OnInit {
   loading:boolean = true;
+  changeDetails = {
+    status:''
+  }
   constructor(private dialog:MatDialog,private service:ApiService){}
 
   ngOnInit(): void {
@@ -65,6 +68,36 @@ export class StaffOrderComponent implements OnInit {
 
   generateTable(data:any){
     this.dataSource = new MatTableDataSource<PeriodicElement>(data)
+  }
+
+  approve(data:any){
+    this.loading = true;
+    this.changeDetails = {
+      status:"Approve"
+    }
+    this.service.patchData(`staff/orders/${data}`,this.changeDetails).subscribe((res:any)=>{
+        this.loading = false;
+        this.service.getData('staff/orders').subscribe((result:any)=>{
+          this.generateTable(result)
+        })
+    },error =>{
+      console.log(error , 'approve error is')
+    })
+  }
+
+  reject(data:any){
+    this.loading =  true;
+    this.changeDetails = {
+      status:"Reject"
+    }
+    this.service.patchData(`staff/orders/${data}`,this.changeDetails).subscribe((res:any)=>{
+      this.loading = false;
+      this.service.getData('staff/orders').subscribe((result:any)=>{
+        this.generateTable(result)
+      })
+    },error =>{
+      console.log(error,'reject error is')
+    })
   }
 
 }

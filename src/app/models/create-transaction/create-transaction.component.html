@@ -7,13 +7,19 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Customer Order No</mat-label>
-                <input type="text" matInput autocomplete="off">
+                <mat-select (selectionChange)="changeOrderNo($event)">
+                    <div class="inputHeader">
+                        <mat-label class="label">Filter:</mat-label>
+                        <input type="text" placeholder="Search..." matInput autocomplete="off" class="inputChange" (keyup)="checkOrder($event)">
+                    </div>
+                    <mat-option *ngFor="let order of orderLists" [value]="order">{{order}}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Customer Name</mat-label>
-                <input type="text" matInput disabled value="Arkar">
+                <input type="text" matInput disabled [value]="allOrders[0]?.userId">
             </mat-form-field>
         </div>
     </div>
@@ -21,13 +27,13 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Number</mat-label>
-                <input type="text" matInput disabled value="101">
+                <input type="text" matInput disabled [value]="allOrders[0]?.roomId">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Price</mat-label>
-                <input type="text" matInput disabled value="10000">
+                <input type="text" matInput disabled [value]="allOrders[0]?.roomPrice">
             </mat-form-field>
         </div>
     </div>
@@ -35,13 +41,13 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>General Checking</mat-label>
-                <input type="number" matInput autocomplete="off">
+                <input type="number" matInput autocomplete="off" (change)="general($event)" [value]="checking">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Tax</mat-label>
-                <input type="number" matInput disabled value="100">
+                <input type="number" matInput disabled [value]="totalAmount.tax || 0">
             </mat-form-field>
         </div>
     </div>
@@ -72,7 +78,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Total</mat-label>
-                <input type="number" matInput disabled value="15150">
+                <input type="number" matInput disabled [value]="totalAmount.total || 0">
             </mat-form-field>
         </div>
     </div>

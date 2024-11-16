@@ -12,3 +12,20 @@ h3{
 mat-form-field{
     width: 100%;
 }
+.inputChange{
+    width: 90%;
+    border: 2px solid blue;
+    border-radius: 30px;
+    padding:0rem 1rem;
+    margin-right: 1rem;
+}
+.inputHeader{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.label{
+    color: var(--primary-color) !important;
+}
