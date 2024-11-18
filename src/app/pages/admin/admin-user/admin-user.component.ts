@@ -37,6 +37,11 @@ export interface PeriodicElement {
   styleUrls: ['./admin-user.component.css']
 })
 export class AdminUserComponent implements OnInit {
+  details = {
+    isActive:true
+  }
+  loading :boolean = true;
+
   constructor(private dialog:MatDialog , private service:ApiService){}
   ngOnInit(): void {
     this.getUser()
@@ -59,13 +64,52 @@ export class AdminUserComponent implements OnInit {
   }
 
   getUser(){
+    this.loading = true
     this.service.getData('users').subscribe((res:any)=>{
       this.generateTable(res)
+      this.loading = false;
     },error =>{
       console.log(error , 'error is')
     })
   }
 
+
+  toggle(data:any){
+      this.details = {
+        isActive:false
+      };
+      this.loading = true;
+      this.service.patchData(`users/${data}`,this.details).subscribe((res:any)=>{
+          this.service.getData('users').subscribe((result:any)=>{
+            this.generateTable(result)
+            this.loading = false;
+          },error =>{
+            console.log(error , 'isActive getError')
+          })
+      },error =>{
+        console.log(error ,'isActive error is')
+      })
+  }
+
+
+  toggleOff(data:any){
+      this.details = {
+        isActive:true
+      };
+      this.loading = true;
+      this.service.patchData(`users/${data}`,this.details).subscribe((res:any)=>{
+          this.service.getData('users').subscribe((result:any)=>{
+            this.generateTable(result)
+            this.loading = false;
+          },error =>{
+            console.log(error , 'isActive getError')
+          })
+      },error =>{
+        console.log(error ,'isActive error is')
+      })
+  }
+
+  
   generateTable(data:any){
     this.dataSource = new MatTableDataSource<PeriodicElement>(data)
   }

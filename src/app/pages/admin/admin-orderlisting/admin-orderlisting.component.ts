@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
 
 export interface PeriodicElement {
   id: number;
@@ -12,35 +13,77 @@ export interface PeriodicElement {
   description:string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {id: 1, customerName: 'Hydrogen', roomNumber: 1.0079, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 2, customerName: 'Helium', roomNumber: 4.0026, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 3, customerName: 'Lithium', roomNumber: 6.941, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 4, customerName: 'Beryllium', roomNumber: 9.0122, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 5, customerName: 'Boron', roomNumber: 10.811, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 6, customerName: 'Carbon', roomNumber: 12.0107, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 7, customerName: 'Nitrogen', roomNumber: 14.0067, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 8, customerName: 'Oxygen', roomNumber: 15.9994, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 9, customerName: 'Fluorine', roomNumber: 8.9984, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 10, customerName: 'Neon', roomNumber: 20.1797, startDate: "1.0079", endDate: 'H',status:'Approved',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 1, customerName: 'Hydrogen', roomNumber: 1.0079, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 2, customerName: 'Helium', roomNumber: 4.0026, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 3, customerName: 'Lithium', roomNumber: 6.941, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 4, customerName: 'Beryllium', roomNumber: 9.0122, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 5, customerName: 'Boron', roomNumber: 10.811, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 6, customerName: 'Carbon', roomNumber: 12.0107, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 7, customerName: 'Nitrogen', roomNumber: 14.0067, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 8, customerName: 'Oxygen', roomNumber: 15.9994, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 9, customerName: 'Fluorine', roomNumber: 8.9984, startDate: "1.0079", endDate: 'H',status:'Pending',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-  {id: 10, customerName: 'Neon', roomNumber: 20.1797, startDate: "1.0079", endDate: 'H',status:'Approved',roomPrice: 1000,maxPeople:3,description:'blah blah'},
-];
+
 
 @Component({
   selector: 'app-admin-orderlisting',
   templateUrl: './admin-orderlisting.component.html',
   styleUrls: ['./admin-orderlisting.component.css']
 })
-export class AdminOrderlistingComponent {
+export class AdminOrderlistingComponent implements OnInit {
+  approveDetails:any;
+  rejectDetails:any;
+  paidDetails:any;
+  allDetails:any;
+  loading:boolean = true;
+  constructor(private service:ApiService){}
+  ngOnInit(): void {
+      this.getApprove()
+      this.getReject()
+      this.getPaid()
+      this.getAllData()
+  }
   displayedColumns: string[] = ['id','customerName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status'];
-  dataSource = ELEMENT_DATA;
+  dataSource:any;
+
+  getApprove(){
+      this.loading = true;
+      this.service.getData('staff/singlepage/approve').subscribe((res:any)=>{
+        this.loading = false;
+        this.generateTable(res,'approve')
+      },error=>{
+        console.log(error , 'approve error is')
+  })
+  }
+
+  getReject(){
+    this.loading = true;
+    this.service.getData('staff/singlepage/reject').subscribe((res:any)=>{
+      this.loading =false;
+      this.generateTable(res,'reject')
+    },error =>{
+      console.log(error , 'reject error is')
+    })
+  }
+
+  getPaid(){
+    this.loading = true;
+    this.service.getData('staff/singlepage/paid').subscribe((res:any)=>{
+      this.loading = false;
+      this.generateTable(res,'paid')
+    },error =>{
+      console.log(error , 'paid error is')
+    })
+  }
+
+  getAllData(){
+    this.loading = true;
+    this.service.getData('staff/orders').subscribe((res:any)=>{
+      this.loading = false;
+      this.generateTable(res,'all')
+    },error =>{
+      console.log(error , 'all data error is')
+    })
+  }
+  generateTable(data:any,status:string){
+    if(status === 'all'){
+      this.dataSource = data
+    }else if(status === 'approve'){
+      this.approveDetails = data
+    }else if(status === 'reject'){
+      this.rejectDetails = data
+    }else if(status === 'paid'){
+      this.paidDetails = data
+    }
+  }
 }
