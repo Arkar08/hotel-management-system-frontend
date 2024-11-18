@@ -48,9 +48,10 @@ export class StaffTransactionComponent implements OnInit {
   displayedColumns: string[] = ['id','orderNo','customerName', 'roomNumber','roomPrice','generalChecking','tax','paymentType', 'total' ,'startDate','action'];
   dataSource:any;
 
-  viewTransaction(){
+  viewTransaction(data:any){
     this.dialog.open(ViewTransactionComponent,{
-      width:'900px'
+      width:'900px',
+      data:data
     })
   }
 
@@ -61,8 +62,23 @@ export class StaffTransactionComponent implements OnInit {
   }
 
   create(){
-    this.dialog.open(CreateTransactionComponent,{
+    const dialogRef = this.dialog.open(CreateTransactionComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== 'undefined'){
+            this.service.postData('staff/transactions',result).subscribe((res:any)=>{
+              this.loading = true;
+                  this.service.getData('staff/transactions').subscribe((res:any)=>{
+                    this.generateTable(res)
+                    this.loading = false;
+                  },error => {
+                    console.log(error , 'transition get error is')
+                  })
+            },error =>{
+                console.log(error , 'transaction create error is')
+            })
+      }
     })
   }
 

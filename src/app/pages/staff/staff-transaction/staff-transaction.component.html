@@ -68,7 +68,7 @@
           <ng-container matColumnDef="action" stickyEnd="true">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon class="view" matTooltip="View" (click)="viewTransaction()">visibility</mat-icon>
+                <mat-icon class="view" matTooltip="View" (click)="viewTransaction(element._id)">visibility</mat-icon>
             </td>
           </ng-container>
       

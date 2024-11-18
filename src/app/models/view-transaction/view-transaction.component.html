@@ -2,52 +2,55 @@
     <h3>View Transaction Detail</h3>
 </div>
 
-<div class="container-fluid p-3">
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
+<div class="container-fluid p-3 " *ngIf="!loading">
     <div>
         <div class="date">
             <p>From: <span>11/11/2024</span></p>
             <p>To: <span>13/11/2024</span></p>
         </div>
         <div class="date">
-            <p>OrderNo: <span>1001010202</span></p>
+            <p>OrderNo: <span>{{transactionDetails.orderId}}</span></p>
         </div>
     </div>
 <div class="header">
     <div class="room">
         <label>Customer Name -</label>
-        <input type="text" value="Arkar" disabled>
+        <input type="text" [value]="transactionDetails.userId" disabled>
     </div>
     <div class="room">
         <label>Room Number -</label>
-        <input type="text" value="101" disabled>
+        <input type="text" [value]="transactionDetails.roomId" disabled>
     </div>
     <div class="room">
         <label>Max People -</label>
-        <input type="text" value="4" disabled>
+        <input type="text" [value]="transactionDetails.maxPeople" disabled>
     </div>
     <div class="room">
         <label>Payement Type -</label>
-        <input type="text" value="Cash" disabled>
+        <input type="text" [value]="transactionDetails.paymentType" disabled>
     </div>
     <div class="room">
         <label>Room Price -</label>
-        <input type="text" value="10000" disabled>
+        <input type="text" [value]="transactionDetails.roomPrice" disabled>
     </div>
     <div class="room">
         <label>General Checking -</label>
-        <input type="text" value="5000" disabled>
+        <input type="text" [value]="transactionDetails.generalChecking" disabled>
     </div>
     <div class="room">
         <label>Tax(5%) -</label>
-        <input type="text" value="150" disabled>
+        <input type="text" [value]="transactionDetails.tax" disabled>
     </div>
     <div class="room">
         <label>Total -</label>
-        <input type="text" value="15150" disabled>
+        <input type="text" [value]="transactionDetails.total" disabled>
     </div>
 </div>
 <div class="print">
-        <button class="cancel" mat-raised-button>Cancel</button>
+        <button class="cancel" mat-raised-button (click)="cancel()">Cancel</button>
         <button class="apply" mat-raised-button>Print</button>
     </div>
 </div>

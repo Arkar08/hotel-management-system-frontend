@@ -79,7 +79,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Payment Type</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="payment">
                     <mat-option value="Cash">Cash</mat-option>
                     <mat-option value="Banking">Banking</mat-option>
                 </mat-select>
@@ -93,7 +93,7 @@
         </div>
     </div>
     <div class="btn_group m-3">
-        <button class="cancel" mat-raised-button>Cancel</button>
-        <button class="save" mat-raised-button>Save</button>
+        <button class="cancel" mat-raised-button (click)="cancel()">Cancel</button>
+        <button class="save" mat-raised-button (click)="save()">Save</button>
     </div>
 </div>

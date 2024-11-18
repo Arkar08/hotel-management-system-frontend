@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+import {MatDialogRef } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-create-transaction',
@@ -23,7 +24,19 @@ export class CreateTransactionComponent implements OnInit {
   fromDate:string = ''
   toDate:string = ''
 
-  constructor(private service:ApiService){}
+  transactions = {
+    orderId:'',
+    userId:'',
+    roomId:'',
+    paymentType:'',
+    total:'',
+    tax:'',
+    generalChecking:''
+  }
+
+  payment:string = '';
+
+  constructor(private service:ApiService , public dialogRef: MatDialogRef<CreateTransactionComponent>){}
   ngOnInit(): void {
       this.getOrder()
   }
@@ -101,5 +114,23 @@ export class CreateTransactionComponent implements OnInit {
   toDateChange(data:any){
     this.toDate = data;
     console.log(this.toDate)
+  }
+
+
+  save(){
+    this.transactions = {
+      orderId: this.allOrders[0].orderNo,
+      userId: this.allOrders[0].userId,
+      roomId: this.allOrders[0].roomId,
+      paymentType : this.payment,
+      total: this.totalAmount.total,
+      tax:this.totalAmount.tax,
+      generalChecking:this.checking
+    }
+    this.dialogRef.close(this.transactions)
+  }
+
+  cancel(){
+    this.dialogRef.close()
   }
 }
