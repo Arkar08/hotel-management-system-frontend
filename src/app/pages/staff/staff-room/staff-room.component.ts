@@ -41,7 +41,7 @@ export class StaffRoomComponent implements OnInit {
     this.getRoom()
   }
 
-  displayedColumns: string[] = ['id','images','title', 'price', 'roomNumbers', 'maxPeople','description','status'];
+  displayedColumns: string[] = ['id','images','title',  'roomNumbers', 'maxPeople','price','description','status'];
   dataSource:any;
 
 

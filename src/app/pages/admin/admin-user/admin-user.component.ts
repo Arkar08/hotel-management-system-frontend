@@ -15,6 +15,7 @@ export interface PeriodicElement {
   address:string;
   date:string;
   isActive:boolean;
+  role:string;
 }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
@@ -47,7 +48,7 @@ export class AdminUserComponent implements OnInit {
     this.getUser()
   }
 
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','isActive','action'];
+  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','isActive','action'];
   dataSource:any;
 
 
@@ -79,15 +80,26 @@ export class AdminUserComponent implements OnInit {
         isActive:false
       };
       this.loading = true;
-      this.service.patchData(`users/${data}`,this.details).subscribe((res:any)=>{
+      this.service.getData(`users/${data}`).subscribe((result:any)=>{
+        if(result.role !== 'admin'){
+          this.service.patchData(`users/${data}`,this.details).subscribe((res:any)=>{
+            this.service.getData('users').subscribe((result:any)=>{
+              this.generateTable(result)
+              this.loading = false;
+            },error =>{
+              console.log(error , 'isActive getError')
+            })
+            },error =>{
+              console.log(error ,'isActive error is')
+        })
+        }else{
           this.service.getData('users').subscribe((result:any)=>{
             this.generateTable(result)
             this.loading = false;
           },error =>{
             console.log(error , 'isActive getError')
           })
-      },error =>{
-        console.log(error ,'isActive error is')
+        }
       })
   }
 
@@ -98,15 +110,16 @@ export class AdminUserComponent implements OnInit {
       };
       this.loading = true;
       this.service.patchData(`users/${data}`,this.details).subscribe((res:any)=>{
-          this.service.getData('users').subscribe((result:any)=>{
-            this.generateTable(result)
-            this.loading = false;
-          },error =>{
-            console.log(error , 'isActive getError')
-          })
-      },error =>{
-        console.log(error ,'isActive error is')
-      })
+        this.service.getData('users').subscribe((result:any)=>{
+          this.generateTable(result)
+          this.loading = false;
+        },error =>{
+          console.log(error , 'isActive getError')
+        })
+    },error =>{
+      console.log(error ,'isActive error is')
+    })
+     
   }
 
   

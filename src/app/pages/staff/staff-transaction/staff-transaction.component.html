@@ -36,27 +36,27 @@
       
         <ng-container matColumnDef="total">
           <th mat-header-cell *matHeaderCellDef> Total </th>
-          <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+          <td mat-cell *matCellDef="let element" class="money"> {{element.total}} Ks </td>
         </ng-container>
 
         <ng-container matColumnDef="roomPrice">
           <th mat-header-cell *matHeaderCellDef> Room Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.roomPrice}} </td>
+          <td mat-cell *matCellDef="let element" class="money"> {{element.roomPrice}} Ks </td>
         </ng-container>
 
         <ng-container matColumnDef="generalChecking">
           <th mat-header-cell *matHeaderCellDef> General Checking </th>
-          <td mat-cell *matCellDef="let element"> {{element.generalChecking}} </td>
+          <td mat-cell *matCellDef="let element" class="money"> {{element.generalChecking}} Ks </td>
         </ng-container>
 
         <ng-container matColumnDef="tax">
           <th mat-header-cell *matHeaderCellDef> Tax(5%) </th>
-          <td mat-cell *matCellDef="let element"> {{element.tax}} </td>
+          <td mat-cell *matCellDef="let element" class="money"> {{element.tax}} Ks </td>
         </ng-container>
       
         <ng-container matColumnDef="startDate">
           <th mat-header-cell *matHeaderCellDef> Payment Date </th>
-          <td mat-cell *matCellDef="let element"> {{element.createdAt | date:'d MMMM, y, h:mm a'}} </td>
+          <td mat-cell *matCellDef="let element" class="money"> {{element.createdAt | date:'d MMMM, y, h:mm a'}} </td>
         </ng-container>
 
           <ng-container matColumnDef="paymentType">

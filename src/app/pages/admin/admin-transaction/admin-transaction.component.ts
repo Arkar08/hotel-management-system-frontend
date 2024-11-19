@@ -37,6 +37,7 @@ export interface PeriodicElement {
   styleUrls: ['./admin-transaction.component.css']
 })
 export class AdminTransactionComponent implements OnInit {
+  loading:boolean = true;
   constructor(private dialog:MatDialog , private service:ApiService){}
   ngOnInit(): void {
     this.getTransaction()
@@ -51,15 +52,18 @@ export class AdminTransactionComponent implements OnInit {
     })
   }
   
-  viewTransaction(){
+  viewTransaction(data:any){
     this.dialog.open(ViewTransactionComponent,{
-      width:'900px'
+      width:'900px',
+      data:data
     })
   }
 
   getTransaction(){
+    this.loading = true;
     this.service.getData('staff/transactions').subscribe((res:any)=>{
       this.generateTable(res)
+      this.loading = false;
     },error =>{
       console.log(error , 'transaction is')
     })

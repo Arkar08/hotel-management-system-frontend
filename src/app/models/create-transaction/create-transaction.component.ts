@@ -12,7 +12,7 @@ export class CreateTransactionComponent implements OnInit {
   loading : boolean = true;
   allOrders:any[]=[]
   generalAmount = {
-    roomId:'',
+    orderId:'',
     generalChecking:0
   }
   totalAmount = {
@@ -46,7 +46,7 @@ export class CreateTransactionComponent implements OnInit {
   general(data:any){
       this.checking = data.target.value;
       this.generalAmount = {
-        roomId:this.allOrders[0]?.roomId,
+        orderId:this.allOrders[0]?._id,
         generalChecking:this.checking
       }
       this.service.postData('staff/transactions/generalChecking',this.generalAmount).subscribe((res:any)=>{

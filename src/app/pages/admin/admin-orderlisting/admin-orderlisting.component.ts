@@ -33,7 +33,7 @@ export class AdminOrderlistingComponent implements OnInit {
       this.getPaid()
       this.getAllData()
   }
-  displayedColumns: string[] = ['id','customerName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status'];
+  displayedColumns: string[] = ['id','customerName', 'roomNumber','maxPeople','startDate','endDate','roomPrice','description','status'];
   dataSource:any;
 
   getApprove(){

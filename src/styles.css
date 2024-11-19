@@ -35,6 +35,9 @@ table tbody tr{
     font-weight: 500;
     color: white !important;
 }
+.money{
+    text-align: right !important;
+}
 table th{
     background-color: var(--table-head-color) !important;
 }
