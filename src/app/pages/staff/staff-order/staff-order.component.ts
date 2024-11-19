@@ -58,7 +58,7 @@ export class StaffOrderComponent implements OnInit {
 
   getOrder(){
     this.loading = true;
-    this.service.getData('staff/orders').subscribe((res:any)=>{
+    this.service.getData('staff/singlepage/pending').subscribe((res:any)=>{
       this.loading = false;
       this.generateTable(res)
     },error=>{
@@ -77,7 +77,7 @@ export class StaffOrderComponent implements OnInit {
     }
     this.service.patchData(`staff/orders/${data}`,this.changeDetails).subscribe((res:any)=>{
         this.loading = false;
-        this.service.getData('staff/orders').subscribe((result:any)=>{
+        this.service.getData('staff/singlepage/pending').subscribe((result:any)=>{
           this.generateTable(result)
         })
     },error =>{
@@ -92,7 +92,7 @@ export class StaffOrderComponent implements OnInit {
     }
     this.service.patchData(`staff/orders/${data}`,this.changeDetails).subscribe((res:any)=>{
       this.loading = false;
-      this.service.getData('staff/orders').subscribe((result:any)=>{
+      this.service.getData('staff/singlepage/pending').subscribe((result:any)=>{
         this.generateTable(result)
       })
     },error =>{

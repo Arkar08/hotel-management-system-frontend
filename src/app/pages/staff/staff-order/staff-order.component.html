@@ -41,7 +41,7 @@
 
         <ng-container matColumnDef="roomPrice">
             <th mat-header-cell *matHeaderCellDef> Room Price </th>
-            <td mat-cell *matCellDef="let element" class="money"> {{element.roomPrice}} Ks </td>
+            <td mat-cell *matCellDef="let element" class="money"> {{element.roomPrice || '0'}} Ks </td>
         </ng-container>
 
         <ng-container matColumnDef="maxPeople">
@@ -51,12 +51,12 @@
 
         <ng-container matColumnDef="startDate">
           <th mat-header-cell *matHeaderCellDef> From Date </th>
-          <td mat-cell *matCellDef="let element" class="money">{{element.fromDate}} </td>
+          <td mat-cell *matCellDef="let element" class="money">{{element.fromDate || '-'}}  </td>
         </ng-container>
 
         <ng-container matColumnDef="endDate">
             <th mat-header-cell *matHeaderCellDef> To Date </th>
-            <td mat-cell *matCellDef="let element" class="money"> {{element.toDate}} </td>
+            <td mat-cell *matCellDef="let element" class="money"> {{element.toDate || '-'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="description">
@@ -66,8 +66,9 @@
 
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            <td mat-cell *matCellDef="let element" style="color: #ffc107;"> {{element.status}} </td>
         </ng-container> 
+        
 
         <ng-container matColumnDef="action" stickyEnd="true">
             <th mat-header-cell *matHeaderCellDef> Action </th>
@@ -75,9 +76,6 @@
             <div class="btn_group" *ngIf="element.status === 'Pending'">
                 <button mat-raised-button class="cancel" (click)="reject(element._id)">Reject</button>
                 <button mat-raised-button class="save" (click)="approve(element._id)">Approve</button>
-            </div>
-            <div *ngIf="element.status !== 'Pending'" class="actionGroup">
-                <p class="action" [ngStyle]="{color: element.status === 'Paid'?'#007bff': element.status === 'Reject' ? '#dc3545' : '#28a745'}">{{element.status}}</p>
             </div>
             </td>
         </ng-container>
