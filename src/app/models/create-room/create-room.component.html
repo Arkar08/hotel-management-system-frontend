@@ -6,7 +6,9 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <input type="text" matInput placeholder="example room" autocomplete="off" [(ngModel)]="title">
+                <mat-select (selectionChange)="titleChange($event)">
+                    <mat-option *ngFor="let room of roomTitle" [value]="room._id">{{room.name}}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         <div class="col">
@@ -39,26 +41,23 @@
         </div>
     </div>
     <div class="row row-cols-2 mt-1">
-        <div class="col-4 multiple">
+        <div class="col-6 multiple">
             <label for="upload" class="upload">
                 <mat-icon class="upload_icon">upload_file</mat-icon>
                 <span>Upload</span>
             </label>
-            <input type="file" hidden id="upload" multiple>
+            <input type="file" hidden id="upload"(change)="upload($event)" accept=".jpeg,.jpg,.png">
         </div>
-        <div class="col-8">
-            <div class="container">
-                <div class="row row-cols-2 file">
-                    <div class="col images"></div>
-                    <div class="col images"></div>
-                    <div class="col images"></div>
-                    <div class="col images"></div>
+        <div class="col-6">
+            <div class="row row-cols-2 file">
+                <div class="col images">
+                    <img  [src]="uploadImages.url" alt="uploadImage" class="img"/>
                 </div>
             </div>
         </div>
     </div>
     <div class="btn_group m-3">
         <button class="cancel" mat-raised-button>Cancel</button>
-        <button class="save" mat-raised-button>Save</button>
+        <button class="save" mat-raised-button (click)="saveRoom()">Save</button>
     </div>
 </div>

@@ -16,7 +16,7 @@ export interface PeriodicElement {
   maxPeople:number;
   roomNumbers:number;
   status:string;
-  images:any[];
+  images:string;
 }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
@@ -73,6 +73,7 @@ export class AdminRoomComponent implements OnInit {
 
   getRoom(){
     this.service.getData('rooms').subscribe((res:any)=>{
+      console.log(res)
       this.generateTable(res)
     },error => {
       console.log(error , 'room is')

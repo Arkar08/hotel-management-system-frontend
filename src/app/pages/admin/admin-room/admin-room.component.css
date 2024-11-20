@@ -21,3 +21,8 @@ mat-icon{
 .icon:nth-child(2){
     color: var(--secondary-color) !important;
 }
+.image{
+    width: 150px;
+    height: 100px;
+    padding:10px 0px;
+}
