@@ -13,7 +13,7 @@ export interface PeriodicElement {
   maxPeople:number;
   roomNumbers:number;
   status:string;
-  image:any[];
+  image:string;
 }
 
 // const ELEMENT_DATA: PeriodicElement[] = [

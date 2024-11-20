@@ -19,6 +19,8 @@ export interface PeriodicElement {
   images:string;
 }
 
+
+
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {id: 1, title: '3', price: 1.0079, description: 'H',maxPeople: 3, roomNumbers: 1.0079, status: 'H',images:[{photo:'blah',name:'photo1'}]},
 //   {id: 2, title: 'Helium', price: 4.0026, description: 'He',maxPeople: 3, roomNumbers: 1.0079, status: 'H',images:[{photo:'blah',name:'photo1'}]},
@@ -39,6 +41,7 @@ export interface PeriodicElement {
   styleUrls: ['./admin-room.component.css']
 })
 export class AdminRoomComponent implements OnInit {
+  loading:boolean= true;
   constructor(private dialog:MatDialog , private service:ApiService){}
   ngOnInit(): void {
     this.getRoom()
@@ -72,9 +75,10 @@ export class AdminRoomComponent implements OnInit {
   }
 
   getRoom(){
+    this.loading = true;
     this.service.getData('rooms').subscribe((res:any)=>{
-      console.log(res)
       this.generateTable(res)
+      this.loading = false;
     },error => {
       console.log(error , 'room is')
     })
