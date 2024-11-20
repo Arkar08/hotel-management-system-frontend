@@ -51,8 +51,24 @@ export class AdminRoomComponent implements OnInit {
   dataSource:any;
 
   create(){
-    this.dialog.open(CreateRoomComponent,{
+    const dialogRef = this.dialog.open(CreateRoomComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      this.loading=  true;
+      if(result !== null){
+        this.service.postData('rooms',result).subscribe((res:any)=>{
+          this.service.getData('rooms').subscribe((response:any)=>{
+            this.generateTable(response)
+            this.loading=  false;
+          },error =>{console.log(error , 'get data error is')})
+        },error=> console.log(error , 'post error is'))
+      }else{
+        this.service.getData('rooms').subscribe((res:any)=>{
+          this.generateTable(res)
+          this.loading = false
+        },error=>console.log('getdata error is',error))
+      }
     })
   }
 
@@ -68,9 +84,29 @@ export class AdminRoomComponent implements OnInit {
     })
   }
 
-  delete(){
-    this.dialog.open(DeleteAdminRoomComponent,{
-      width:'700px'
+  delete(data:any){
+    const dialogRef = this.dialog.open(DeleteAdminRoomComponent,{
+      width:'700px',
+      data:data
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== null){
+        this.service.deleteData(`rooms/${result}`).subscribe((res:any)=>{
+          this.loading=  true;
+          this.service.getData('rooms').subscribe((res:any)=>{
+            this.loading = false;
+            this.generateTable(res)
+          })
+        },error=>{
+          console.log(error , 'delete error is')
+        })
+      }else{
+        this.loading = true;
+        this.service.getData('rooms').subscribe((res:any)=>{
+          this.generateTable(res)
+          this.loading = false;
+        },error=>console.log(error , 'get error is'))
+      }
     })
   }
 

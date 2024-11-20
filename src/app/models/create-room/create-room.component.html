@@ -50,14 +50,15 @@
         </div>
         <div class="col-6">
             <div class="row row-cols-2 file">
-                <div class="col images">
-                    <img  [src]="uploadImages.url" alt="uploadImage" class="img"/>
+                <div class="col images" *ngIf="active"></div>
+                <div class="col images" *ngIf="!active">
+                    <img  [src]="imagesId.url" alt="uploadImage" class="img"/>
                 </div>
             </div>
         </div>
     </div>
     <div class="btn_group m-3">
-        <button class="cancel" mat-raised-button>Cancel</button>
+        <button class="cancel" mat-raised-button (click)="cancel()">Cancel</button>
         <button class="save" mat-raised-button (click)="saveRoom()">Save</button>
     </div>
 </div>

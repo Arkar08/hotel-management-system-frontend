@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -18,13 +19,14 @@ export class CreateRoomComponent implements OnInit {
     name:''
   }
 
-  imagesId :string = ''
+  imagesId:any;
 
   roomTitle:any[]=[]
 
   roomDetails:any;
+  active:boolean = true;
 
-  constructor(private service:ApiService){}
+  constructor(private service:ApiService, private dialogRef:MatDialogRef<CreateRoomComponent>){}
   ngOnInit(): void {
     this.getRoomTitle()
   }
@@ -50,8 +52,10 @@ export class CreateRoomComponent implements OnInit {
               reader.onload = (event:any) => {
                 this.uploadImages.url = event.target.result;
                 if(this.uploadImages.url !== ''){
+                  this.active = true;
                   this.service.postData('staff/singlepage/upload',this.uploadImages).subscribe((res:any)=>{
-                    this.imagesId = res._id;
+                    this.imagesId = res;
+                    this.active=  false;
                   },error =>{
                     console.log(error , 'error is')
                   })
@@ -62,20 +66,20 @@ export class CreateRoomComponent implements OnInit {
   }
 
   saveRoom(){
-    this.roomDetails = {
-      title:this.titleName,
-      price:Number(this.price),
-      description:this.description,
-      maxPeople:Number(this.maxPeople),
-      roomNumbers:Number(this.roomNumber),
-      images:this.imagesId
-    }
-    console.log(this.imagesId)
-    this.service.postData('rooms',this.roomDetails).subscribe((res:any)=>{
-      console.log(res)
-    },error=>{
-      console.log(error, 'post room error is')
-    })
+      this.roomDetails = {
+        title:this.titleName,
+        price:Number(this.price),
+        description:this.description,
+        maxPeople:Number(this.maxPeople),
+        roomNumbers:Number(this.roomNumber),
+        images:this.imagesId._id
+      }
+      this.dialogRef.close(this.roomDetails)
+  }
+
+  cancel(){
+    this.roomDetails = null;
+    this.dialogRef.close(this.roomDetails)
   }
 
 }

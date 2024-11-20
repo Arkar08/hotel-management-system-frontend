@@ -34,3 +34,10 @@ mat-icon{
     text-align: center;
     font-size: 48px;
 }
+.profile{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px black;
+    margin:5px 0px;
+}

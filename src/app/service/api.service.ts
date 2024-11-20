@@ -29,9 +29,9 @@ export class ApiService {
     return this.http.patch<any>(dataUrl ,data)
   }
 
-  deleteData(url:string,data:any):Observable<any>{
+  deleteData(url:string):Observable<any>{
     const dataUrl = Api_Url + url;
-    return this.http.delete<any>(dataUrl , data)
+    return this.http.delete<any>(dataUrl )
   }
 
 }
