@@ -58,9 +58,10 @@ export class AdminUserComponent implements OnInit {
     })
   }
 
-  view(){
+  view(data:any){
     this.dialog.open(ViewUserComponent,{
-      width:'900px'
+      width:'900px',
+      data:data
     })
   }
 

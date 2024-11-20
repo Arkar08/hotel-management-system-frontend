@@ -16,7 +16,7 @@ h3{
 .images{
     width: 150px;
     height: 150px;
-    background-color: gray;
+    box-shadow: 1px 1px 3px black;
     border-radius: 10px;
 }
 p{
@@ -30,7 +30,7 @@ span{
 .header{
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 label{
     margin-bottom: 1rem;
@@ -49,5 +49,5 @@ input{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }

@@ -2,10 +2,10 @@
     <h3>View Detail</h3>
 </div>
 <div class="container-fluid p-3">
-    <div class="row row-cols-2 mt-1 p-2">
+    <div class="row row-cols-2 p-2">
         <div class="col">
-            <p>Id: <span>1</span></p>
-            <p>Joining Date: <span>08/12/2024</span></p>
+            <p>Id: <span>{{userList.id}}</span></p>
+            <p>Joining Date: <span>{{userList.createdAt | date:'d MMMM, y, h:mm a' }}</span></p>
         </div>
         <div class="col">
             <div class="image_container">
@@ -13,38 +13,38 @@
             </div>
         </div>
     </div>
-    <div class="row row-cols-2 mt-1">
+    <div class="row row-cols-2">
         <div class="col">
             <div class="header">
                 <label>Name:</label>
-                <input type="text" value="Arkar" disabled>
+                <input type="text" [value]="userList.fullName" disabled>
             </div>
         </div>
         <div class="col">
             <div class="header">
                 <label>Email:</label>
-                <input type="text" value="arkar@gmail.com" disabled>
+                <input type="text" [value]="userList.email" disabled>
             </div>
         </div>
     </div>
-    <div class="row row-cols-2 mt-1">
+    <div class="row row-cols-2">
         <div class="col">
             <div class="header">
                 <label>NRC:</label>
-                <input type="text" value="12/MYK(N)111222" disabled>
+                <input type="text" [value]="userList.NRCNO" disabled>
             </div>
         </div>
         <div class="col">
             <div class="header">
                 <label>Contact Number:</label>
-                <input type="text" value="092342343334" disabled>
+                <input type="text" [value]="userList.phNo" disabled>
             </div>
         </div>
     </div>
-    <div class="row row-cols-1 mt-1">
+    <div class="row row-cols-1">
         <div class="header">
             <label>Address:</label>
-            <input type="text" value="KaBaAye Housing" disabled>
+            <input type="text" [value]="userList.address" disabled>
         </div>
     </div>
     <div class="print">
