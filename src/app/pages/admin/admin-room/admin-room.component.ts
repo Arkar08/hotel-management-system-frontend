@@ -78,9 +78,32 @@ export class AdminRoomComponent implements OnInit {
     })
   }
 
-  edit(){
-    this.dialog.open(EditRoomComponent,{
-      width:'900px'
+  edit(data:any){
+    const dialogRef = this.dialog.open(EditRoomComponent,{
+      width:'900px',
+      data:data
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      this.loading = true;
+      if(result !== null){
+        this.service.patchData(`rooms/${data}`,result).subscribe((res:any)=>{
+          this.service.getData('rooms').subscribe((res:any)=>{
+            this.generateTable(res)
+            this.loading = false;
+          },error =>{
+            console.log(error ,'patch get error is')
+          })
+        },error=>{
+          console.log(error , 'patch error is')
+        })
+      }else{
+        this.service.getData('rooms').subscribe((res:any)=>{
+          this.generateTable(res)
+          this.loading = false;
+        },error =>{
+          console.log(error , 'get error is')
+        })
+      }
     })
   }
 

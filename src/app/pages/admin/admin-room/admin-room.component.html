@@ -59,7 +59,7 @@
           <ng-container matColumnDef="action" stickyEnd="true">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element"> 
-              <mat-icon class="icon" matTooltip="Edit" (click)="edit()">edit</mat-icon>
+              <mat-icon class="icon" matTooltip="Edit" (click)="edit(element._id)">edit</mat-icon>
               <mat-icon class="icon" matTooltip="delete" (click)="delete(element._id)">delete</mat-icon>
             </td>
           </ng-container>

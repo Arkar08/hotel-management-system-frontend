@@ -1,18 +1,26 @@
 <div class="main">
     <h3>Update Room</h3>
 </div>
-<div class="container-fluid p-3">
+<div *ngIf="loading">
+    <app-loading></app-loading>
+</div>
+<div class="container-fluid p-3" *ngIf="!loading">
+    <div class="row row-cols-2 find mb-2">
+        <div class="col img">
+            <img [src]="roomDetails?.images" alt="image" class="image">
+        </div>
+    </div>
     <div class="row row-cols-2 mt-1">
         <div class="col">
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <input type="text" matInput placeholder="example room" autocomplete="off">
+                <input type="text" matInput placeholder="example room" autocomplete="off" [value]="roomDetails?.title" disabled>
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Numbers</mat-label>
-                <input type="number" matInput placeholder="100" autocomplete="off">
+                <input type="number" matInput placeholder="100" autocomplete="off" [(ngModel)]="roomDetails.roomNumbers">
             </mat-form-field>
         </div>
     </div>
@@ -20,24 +28,19 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Max People</mat-label>
-                <input type="number" matInput placeholder="0" autocomplete="off">
+                <input type="number" matInput placeholder="0" autocomplete="off" [(ngModel)]="roomDetails.maxPeople">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Price</mat-label>
-                <input type="number" matInput placeholder="0" autocomplete="off" >
+                <input type="number" matInput placeholder="0" autocomplete="off" [(ngModel)]="roomDetails.price">
             </mat-form-field>
         </div>
     </div>
-    <div class="row row-cols-4 find mt-2">
-        <div class="col images"></div>
-        <div class="col images"></div>
-        <div class="col images"></div>
-        <div class="col images"></div>
-    </div>
+
     <div class="btn_group mt-3">
-        <button class="cancel" mat-raised-button>Cancel</button>
-        <button class="save" mat-raised-button>Update</button>
+        <button class="cancel" mat-raised-button (click)="cancel()">Cancel</button>
+        <button class="save" mat-raised-button (click)="update()">Update</button>
     </div>
 </div>
