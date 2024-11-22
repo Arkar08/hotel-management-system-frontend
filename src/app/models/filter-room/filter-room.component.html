@@ -6,20 +6,16 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <mat-select>
-                    <mat-option>Luxuary Room</mat-option>
-                    <mat-option>Double Room</mat-option>
-                    <mat-option>Family Room</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'title')">
+                    <mat-option *ngFor="let title of allTitle" [value]="title._id">{{title.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Number</mat-label>
-                <mat-select>
-                    <mat-option>101</mat-option>
-                    <mat-option>102</mat-option>
-                    <mat-option>103</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'roomNumber')">
+                    <mat-option *ngFor="let number of allRoomNumber" [value]="number">{{number}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -28,20 +24,16 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Min Price</mat-label>
-                <mat-select>
-                    <mat-option>10000</mat-option>
-                    <mat-option>20000</mat-option>
-                    <mat-option>50000</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'minPrice')">
+                    <mat-option *ngFor="let price of allPrice" [value]="price">{{price}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Max Price</mat-label>
-                <mat-select>
-                    <mat-option>10000</mat-option>
-                    <mat-option>20000</mat-option>
-                    <mat-option>50000</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'maxPrice')">
+                    <mat-option *ngFor="let price of allPrice" [value]="price">{{price}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -50,25 +42,23 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Max People</mat-label>
-                <mat-select>
-                    <mat-option>3</mat-option>
-                    <mat-option>4</mat-option>
-                    <mat-option>1</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'maxPeople')">
+                    <mat-option *ngFor="let people of allPeople" [value]="people">{{people}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>Status</mat-label>
-                <mat-select>
-                    <mat-option>Available</mat-option>
-                    <mat-option>Full</mat-option>
+                <mat-select (selectionChange)="changeSelect($event,'status')">
+                    <mat-option value="Available">Available</mat-option>
+                    <mat-option value="Full">Full</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
     </div>
     <div class="btn_group m-2">
-        <button mat-raised-button class="reset">Reset</button>
-        <button mat-raised-button class="apply">Apply</button>
+        <button mat-raised-button class="reset" (click)="cancel()">Reset</button>
+        <button mat-raised-button class="apply" (click)="apply()">Apply</button>
     </div>
 </div>

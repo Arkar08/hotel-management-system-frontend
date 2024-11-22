@@ -73,8 +73,25 @@ export class AdminRoomComponent implements OnInit {
   }
 
   filter(){
-    this.dialog.open(FilterRoomComponent,{
+    const dialogRef = this.dialog.open(FilterRoomComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== null){
+        if(result.title !== ''){
+          this.service.getData(`filter/room/?title=${result.title}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error ,'error is')
+          })
+        }
+      }else{
+        this.service.getData('rooms').subscribe((res:any)=>{
+          this.generateTable(res)
+        },error=>{
+          console.log(error , 'get data error is')
+        })
+      }
     })
   }
 

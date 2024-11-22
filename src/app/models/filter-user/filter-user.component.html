@@ -6,13 +6,13 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>From Date</mat-label>
-                <input type="date" matInput>
+                <input type="date" matInput [(ngModel)]="fromDate">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
                 <mat-label>To Date</mat-label>
-                <input type="date" matInput>
+                <input type="date" matInput [(ngModel)]="toDate">
             </mat-form-field>
         </div>
     </div>
@@ -21,8 +21,8 @@
             <mat-form-field>
                 <mat-label>State</mat-label>
                 <mat-select>
-                    <mat-option>Mon</mat-option>
-                    <mat-option>Shan</mat-option>
+                    <mat-option value="mon">Mon</mat-option>
+                    <mat-option value="shan">Shan</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -38,11 +38,11 @@
     </div>
     <div class="row row-cols-2 mt-2">
         <div class="col">
-            <mat-checkbox class="example-margin">isActive</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="isActive">isActive</mat-checkbox>
         </div>
     </div>
     <div class="btn_group m-2">
         <button class="reset" mat-raised-button>Reset</button>
-        <button class="apply" mat-raised-button>Apply</button>
+        <button class="apply" mat-raised-button (click)="apply()">Apply</button>
     </div>
 </div>
