@@ -15,7 +15,6 @@ export interface PeriodicElement {
   NRCNO:string;
   address:string;
   date:string;
-  isActive:boolean;
   role:string;
 }
 
@@ -33,7 +32,7 @@ export class StaffCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
   }
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','isActive','action'];
+  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','action'];
   dataSource :any;
 
   filter(){
@@ -51,7 +50,7 @@ export class StaffCustomerComponent implements OnInit {
 
   getUser(){
     this.loading = true;
-    this.service.getData('users').subscribe((res:any)=>{
+    this.service.getData('staff/singlepage/staff').subscribe((res:any)=>{
       this.loading = false;
       console.log(res)
       this.allUsers = res;

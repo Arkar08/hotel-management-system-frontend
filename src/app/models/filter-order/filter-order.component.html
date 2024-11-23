@@ -22,8 +22,7 @@
             <mat-form-field>
                 <mat-label>Customer Name</mat-label>
                 <mat-select>
-                    <mat-option>Arkar</mat-option>
-                    <mat-option>Ko Ko</mat-option>
+                    <mat-option *ngFor="let name of allUser"[value]="name">{{name}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -31,20 +30,7 @@
             <mat-form-field>
                 <mat-label>Room Number</mat-label>
                 <mat-select>
-                    <mat-option>101</mat-option>
-                    <mat-option>102</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="row row-cols-2 mt-2">
-        <div class="col">
-            <mat-form-field>
-                <mat-label>Status</mat-label>
-                <mat-select>
-                    <mat-option>Reject</mat-option>
-                    <mat-option>Approve</mat-option>
-                    <mat-option>Pending</mat-option>
+                    <mat-option *ngFor="let room of allroomNumber" [value]="room">{{room}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
