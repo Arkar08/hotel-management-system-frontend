@@ -5,14 +5,24 @@
     <div class="row row-cols-2 mt-2">
         <div class="col">
             <mat-form-field>
-                <mat-label>Start Date</mat-label>
-                <input type="date" matInput>
+                <mat-label>From Date</mat-label>
+                <input type="text"
+                    placeholder="YYYY-MM-DD"
+                    bsDatepicker
+                    [daysDisabled]="[6,0]"
+                    [value]="fromDate | date: 'yyyy-MM-dd'"
+                    [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="dateChange($event,'fromDate')">
             </mat-form-field>
         </div>
         <div class="col">
             <mat-form-field>
-                <mat-label>End Date</mat-label>
-                <input type="date" matInput>
+                <mat-label>To Date</mat-label>
+                <input type="text"
+                    placeholder="YYYY-MM-DD"
+                    bsDatepicker
+                    [daysDisabled]="[6,0]"
+                    [value]="toDate | date: 'yyyy-MM-dd'"
+                    [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="dateChange($event,'toDate')">
             </mat-form-field>
         </div>
     </div>
@@ -20,7 +30,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Customer Name</mat-label>
-                <mat-select>
+                <mat-select (selectionChange)="selectChange($event , 'user')">
                    <mat-option *ngFor="let user of alluser" [value]="user">{{user}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -28,7 +38,7 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Room Number</mat-label>
-                <mat-select>
+                <mat-select (selectionChange)="selectChange($event , 'roomNumber')">
                   <mat-option *ngFor="let room of allroomNumber" [value]="room">{{room}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -38,15 +48,15 @@
         <div class="col">
             <mat-form-field>
                 <mat-label>Payment Type</mat-label>
-                <mat-select>
-                    <mat-option>Cash</mat-option>
-                    <mat-option>Banking</mat-option>
+                <mat-select (selectionChange)="selectChange($event,'payment')">
+                    <mat-option value="Cash">Cash</mat-option>
+                    <mat-option value="Banking">Banking</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
     </div>
     <div class="btn_group m-2">
-        <button mat-raised-button  class="reset">Reset</button>
-        <button mat-raised-button  class="apply">Apply</button>
+        <button mat-raised-button  class="reset" (click)="reset()">Reset</button>
+        <button mat-raised-button  class="apply" (click)="apply()">Apply</button>
     </div>
 </div>

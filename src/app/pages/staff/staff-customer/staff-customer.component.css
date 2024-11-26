@@ -18,19 +18,11 @@ mat-icon{
 .active{
     text-align: left !important;
 }
-.on_toggle{
-    color: green !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 48px;
-}
-.off_toggle{
-    color:red !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 48px;
+
+.profile{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px black;
+    margin:5px 0px;
 }

@@ -9,7 +9,6 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class FilterRoomComponent implements OnInit{ 
   title:string = ''
-  roomNumber:string = ''
   minPrice:string = ''
   maxPrice:string = ''
   maxPeople:string = ''
@@ -18,14 +17,12 @@ export class FilterRoomComponent implements OnInit{
   filterDetails:any;
 
   allTitle:any[]=[]
-  allRoomNumber:any[]=[]
   allPrice:any[]=[]
   allPeople:any[]=[]
 
   constructor(private dialogRef:MatDialogRef<FilterRoomComponent>,private service:ApiService){}
   ngOnInit(): void {
       this.getTitle()
-      this.getRoomNumber()
       this.getPrice()
       this.getPeople()
   }
@@ -33,8 +30,6 @@ export class FilterRoomComponent implements OnInit{
   changeSelect(data:any,world:string){
     if(world === 'title'){
       this.title = data.value;
-    }else if(world === 'roomNumber'){
-      this.roomNumber = data.value
     }else if(world === 'minPrice'){
       this.minPrice = data.value;
     }else if(world === 'maxPrice'){
@@ -48,8 +43,6 @@ export class FilterRoomComponent implements OnInit{
 
   apply(){
     this.filterDetails = {
-      title:this.title,
-      roomNumber:this.roomNumber,
       minPrice:this.minPrice,
       maxPrice:this.maxPrice,
       maxPeople:this.maxPeople,
@@ -69,13 +62,6 @@ export class FilterRoomComponent implements OnInit{
     })
   }
 
-  getRoomNumber(){
-    this.service.getData('filter/room/dropdown/roomNumber').subscribe((res:any)=>{
-      this.allRoomNumber = res
-    },error =>{
-      console.log(error , 'error is')
-    })
-  }
 
   getPrice(){
     this.service.getData('filter/room/dropdown/price').subscribe((res:any)=>{

@@ -46,8 +46,49 @@ export class StaffRoomComponent implements OnInit {
 
 
   filter(){
-    this.dialog.open(FilterRoomComponent,{
+    const dialogRef = this.dialog.open(FilterRoomComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== null && result !== undefined){
+        if(result.title !== '' && result.minPrice !== '' && result.maxPrice !== '' && result.maxPeople !== '' && result.status !== ''){
+          this.service.getData(`filter/room/?title=${result.title}&&minPrice=${result.minPrice}&&maxPrice=${result.maxPrice}&&maxPeople=${result.maxPeople}&&status=${result.status}}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'filter error is')
+          })
+        }else if(result.title !== ''){
+          this.service.getData(`filter/room/?title=${result.title}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error ,'error is')
+          })
+        }else if(result.minPrice !== '' && result.maxPrice !== ''){
+          this.service.getData(`filter/room/?minPrice=${result.minPrice}&&maxPrice=${result.maxPrice}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }else if(result.status !== ''){
+          this.service.getData(`filter/room/?status=${result.status}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error, 'error is')
+          })
+        }else if(result.maxPeople !== ''){
+          this.service.getData(`filter/room/?maxPeople=${result.maxPeople}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        } 
+      }else{
+        this.service.getData('rooms').subscribe((res:any)=>{
+          this.generateTable(res)
+        },error=>{
+          console.log(error , 'get data error is')
+        })
+      }
     })
   }
 

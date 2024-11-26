@@ -51,8 +51,43 @@ export class StaffOrderComponent implements OnInit {
   dataSource:any;
 
   filter(){
-    this.dialog.open(FilterOrderComponent,{
+    const dialogRef = this.dialog.open(FilterOrderComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== null && result !== undefined){
+        if(result.fromDate !== ''&&result.toDate !== ''&& result.userId !== ''&&result.roomNumber!== ''&& result.paymentType !==''){
+          this.service.getData(`filter/order/?fromDate=${result.fromDate}&&toDate=${result.toDate}&&userId=${result.userId}&&roomNumber=${result.roomNumber}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'filter error is')
+          })
+        }else if(result.fromDate !== ''&& result.toDate !== ''){
+          this.service.getData(`filter/order/?fromDate=${result.fromDate}&&toDate=${result.toDate}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }else if(result.userId !== ''){
+          this.service.getData(`filter/order/?userId=${result.userId}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error=>{
+            console.log(error , 'error is')
+          })
+        }else if(result.roomNumber !== ''){
+          this.service.getData(`filter/order/?roomNumber=${result.roomNumber}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }
+      }else {
+        this.service.getData('staff/singlepage/pending').subscribe((res:any)=>{
+          this.generateTable(res)
+        },error =>{
+          console.log(error , 'transaction is')
+        })
+      }
     })
   }
 

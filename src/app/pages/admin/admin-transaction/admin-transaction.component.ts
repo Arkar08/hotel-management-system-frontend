@@ -47,8 +47,51 @@ export class AdminTransactionComponent implements OnInit {
   dataSource:any;
 
   filter(){
-    this.dialog.open(FilterTransactionComponent,{
+    const dialogRef = this.dialog.open(FilterTransactionComponent,{
       width:'900px'
+    })
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      if(result !== null && result !== undefined){
+        if(result.fromDate !== ''&&result.toDate !== ''&& result.userId !== ''&&result.roomNumber!== ''&& result.paymentType !==''){
+          this.service.getData(`filter/transaction/?fromDate=${result.fromDate}&&toDate=${result.toDate}&&userId=${result.userId}&&roomNumber=${result.roomNumber}&&paymentType=${result.paymentType}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'filter error is')
+          })
+        }else if(result.fromDate !== ''&& result.toDate !== ''){
+          this.service.getData(`filter/transaction/?fromDate=${result.fromDate}&&toDate=${result.toDate}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }else if(result.userId !== ''){
+          this.service.getData(`filter/transaction/?userId=${result.userId}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error=>{
+            console.log(error , 'error is')
+          })
+        }else if(result.roomNumber !== ''){
+          this.service.getData(`filter/transaction/?roomNumber=${result.roomNumber}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }else if(result.paymentType !== ''){
+          this.service.getData(`filter/transaction/?paymentType=${result.paymentType}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error, 'error is ')
+          })
+        }
+      
+        
+      }else {
+        this.service.getData('staff/transactions').subscribe((res:any)=>{
+          this.generateTable(res)
+        },error =>{
+          console.log(error , 'transaction is')
+        })
+      }
     })
   }
   

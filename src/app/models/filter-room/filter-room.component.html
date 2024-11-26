@@ -11,14 +11,6 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col">
-            <mat-form-field>
-                <mat-label>Room Number</mat-label>
-                <mat-select (selectionChange)="changeSelect($event,'roomNumber')">
-                    <mat-option *ngFor="let number of allRoomNumber" [value]="number">{{number}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
     </div>
     <div class="row row-cols-2 mt-2">
         <div class="col">

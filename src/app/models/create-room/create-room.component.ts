@@ -78,8 +78,7 @@ export class CreateRoomComponent implements OnInit {
   }
 
   cancel(){
-    this.roomDetails = null;
-    this.dialogRef.close(this.roomDetails)
+    this.dialogRef.close(null)
   }
 
 }

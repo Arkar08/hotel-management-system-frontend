@@ -55,18 +55,16 @@ export class AdminRoomComponent implements OnInit {
       width:'900px'
     })
     dialogRef.afterClosed().subscribe((result:any)=>{
-      this.loading=  true;
-      if(result !== null){
+      console.log(result)
+      if(result !== null && result !== undefined){
         this.service.postData('rooms',result).subscribe((res:any)=>{
           this.service.getData('rooms').subscribe((response:any)=>{
             this.generateTable(response)
-            this.loading=  false;
           },error =>{console.log(error , 'get data error is')})
         },error=> console.log(error , 'post error is'))
       }else{
         this.service.getData('rooms').subscribe((res:any)=>{
           this.generateTable(res)
-          this.loading = false
         },error=>console.log('getdata error is',error))
       }
     })
@@ -77,14 +75,38 @@ export class AdminRoomComponent implements OnInit {
       width:'900px'
     })
     dialogRef.afterClosed().subscribe((result:any)=>{
-      if(result !== null){
-        if(result.title !== ''){
+      if(result !== null && result !== undefined){
+        if(result.title !== '' && result.minPrice !== '' && result.maxPrice !== '' && result.maxPeople !== '' && result.status !== ''){
+          this.service.getData(`filter/room/?title=${result.title}&&minPrice=${result.minPrice}&&maxPrice=${result.maxPrice}&&maxPeople=${result.maxPeople}&&status=${result.status}}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'filter error is')
+          })
+        }else if(result.title !== ''){
           this.service.getData(`filter/room/?title=${result.title}`).subscribe((res:any)=>{
             this.generateTable(res)
           },error =>{
             console.log(error ,'error is')
           })
-        }
+        }else if(result.minPrice !== '' && result.maxPrice !== ''){
+          this.service.getData(`filter/room/?minPrice=${result.minPrice}&&maxPrice=${result.maxPrice}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        }else if(result.status !== ''){
+          this.service.getData(`filter/room/?status=${result.status}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error, 'error is')
+          })
+        }else if(result.maxPeople !== ''){
+          this.service.getData(`filter/room/?maxPeople=${result.maxPeople}`).subscribe((res:any)=>{
+            this.generateTable(res)
+          },error =>{
+            console.log(error , 'error is')
+          })
+        } 
       }else{
         this.service.getData('rooms').subscribe((res:any)=>{
           this.generateTable(res)
