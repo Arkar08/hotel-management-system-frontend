@@ -1,7 +1,6 @@
 .header{
     width: 100vw;
     height: 100vh;
-    background-color: #000;
 }
 
 .main{
@@ -69,4 +68,12 @@ button{
 }
 p{
     color: var(--secondary-color);
+}
+
+@media (max-width:440px) {
+    h4{
+        font-size: 20px;
+        text-wrap: nowrap;
+        padding:0px 10px;
+    }
 }

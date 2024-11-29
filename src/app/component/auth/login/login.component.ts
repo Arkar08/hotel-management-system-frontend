@@ -41,12 +41,15 @@ export class LoginComponent implements OnInit {
       this.authService.login()
       this.loginData = res;
       localStorage.setItem('token',this.loginData.token)
-      if(this.loginData.role === 'receptionist' || this.loginData.role === 'customer'){
+      if(this.loginData.role === 'receptionist'){
         localStorage.setItem('role','receptionist')
         this.router.navigateByUrl('receptionist/dashboard')
       }else if(this.loginData.role === 'admin'){
         localStorage.setItem('role','admin')
         this.router.navigateByUrl('admin/dashboard')
+      }else if(this.loginData.role === 'customer'){
+        localStorage.setItem('role','customer')
+        this.router.navigateByUrl('customer/home')
       }
     },error=>{
       if(error){

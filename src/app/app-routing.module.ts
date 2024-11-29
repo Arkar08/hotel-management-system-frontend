@@ -16,6 +16,12 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { LoginComponent } from './component/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerHomeComponent } from './pages/customer/customer-home/customer-home.component';
+import { CustomerSearchComponent } from './pages/customer/customer-search/customer-search.component';
+import { CustomerOrderComponent } from './pages/customer/customer-order/customer-order.component';
+import { CustomerTransactionComponent } from './pages/customer/customer-transaction/customer-transaction.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
+import { CustomerNavbarComponent } from './layout/customer-navbar/customer-navbar.component';
 
 const routes: Routes = [
   {
@@ -75,6 +81,32 @@ const routes: Routes = [
       {
         path:'logout',
         component:LogoutComponent
+      }
+    ]
+  },
+  {
+    path:'',
+    component:CustomerNavbarComponent,
+    children:[
+      {
+        path:'customer/home',
+        component:CustomerHomeComponent
+      },
+      {
+        path:'customer/search',
+        component:CustomerSearchComponent
+      },
+      {
+        path:'customer/order',
+        component:CustomerOrderComponent
+      },
+      {
+        path:'customer/booking',
+        component:CustomerTransactionComponent
+      },
+      {
+        path:'customer/profile',
+        component:CustomerProfileComponent
       }
     ]
   },

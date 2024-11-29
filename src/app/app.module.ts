@@ -37,6 +37,13 @@ import { AdminOrderlistingComponent } from './pages/admin/admin-orderlisting/adm
 import { HTTP_INTERCEPTORS , HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { CustomerHomeComponent } from './pages/customer/customer-home/customer-home.component';
+import { CustomerOrderComponent } from './pages/customer/customer-order/customer-order.component';
+import { CustomerTransactionComponent } from './pages/customer/customer-transaction/customer-transaction.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
+import { CustomerSearchComponent } from './pages/customer/customer-search/customer-search.component';
+import { CustomerNavbarComponent } from './layout/customer-navbar/customer-navbar.component';
+import { CustomerFooterbarComponent } from './layout/customer-footerbar/customer-footerbar.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +74,13 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
     FilterOrderComponent,
     CreateTransactionComponent,
     AdminOrderlistingComponent,
+    CustomerHomeComponent,
+    CustomerOrderComponent,
+    CustomerTransactionComponent,
+    CustomerProfileComponent,
+    CustomerSearchComponent,
+    CustomerNavbarComponent,
+    CustomerFooterbarComponent,
   ],
   imports: [
     BrowserModule,
