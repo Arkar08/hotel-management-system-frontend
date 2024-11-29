@@ -1,1 +1,45 @@
-<p>customer-home works!</p>
+<div class="home">
+    <h3>Find Your <span>Hotel</span></h3>
+    <div class="searchBox">
+        <div class="inputBox">
+            <mat-icon class="icon">search</mat-icon>
+            <input type="text" matInput placeholder="Search Hotel" routerLink="/customer/search">
+        </div>
+        <button mat-icon-button>
+            <mat-icon>tune</mat-icon>
+        </button>
+    </div>
+    <div class="headerBox">
+        <div class="middleBox">
+            <div class="box">
+                <h4>Recommended</h4>
+                <mat-icon routerLink="/customer/recommended">arrow_right_alt</mat-icon>
+            </div>
+            <div class="cardBox">
+                <app-card></app-card>
+                <app-card></app-card>
+            </div>
+        </div>
+        <div class="middleBox">
+            <div class="box">
+                <h4>Popular</h4>
+                <mat-icon routerLink="/customer/popular">arrow_right_alt</mat-icon>
+            </div>
+            <div class="cardBox">
+                <app-card></app-card>
+                <app-card></app-card>
+            </div>
+        </div>
+        <div class="middleBox">
+            <div class="box">
+                <h4>Budget</h4>
+                <mat-icon routerLink="/customer/budget">arrow_right_alt</mat-icon>
+            </div>
+            <div class="cardBox">
+                <app-card></app-card>
+                <app-card></app-card>
+            </div>
+        </div>
+    </div>
+    
+</div>

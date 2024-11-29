@@ -3,8 +3,7 @@ mat-toolbar{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     align-items: center;
-    gap: 20px;
-    position: absolute;
+    position: fixed;
     bottom: 0%;
 }
 .footer{
@@ -21,9 +20,9 @@ a{
     color: black;
 }
 .active{
-    background-color: green;
-    color: white;
-    border-radius: 50%;
-    width: 78px;
-    height: 78px;
+    background-color: #7f7f7f1e;
+    color: green;
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
 }

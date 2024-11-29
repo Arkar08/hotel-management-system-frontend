@@ -44,6 +44,10 @@ import { CustomerProfileComponent } from './pages/customer/customer-profile/cust
 import { CustomerSearchComponent } from './pages/customer/customer-search/customer-search.component';
 import { CustomerNavbarComponent } from './layout/customer-navbar/customer-navbar.component';
 import { CustomerFooterbarComponent } from './layout/customer-footerbar/customer-footerbar.component';
+import { CardComponent } from './component/card/card.component';
+import { RecommendedComponent } from './component/recommended/recommended.component';
+import { PopularComponent } from './component/popular/popular.component';
+import { BudgetComponent } from './component/budget/budget.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +85,10 @@ import { CustomerFooterbarComponent } from './layout/customer-footerbar/customer
     CustomerSearchComponent,
     CustomerNavbarComponent,
     CustomerFooterbarComponent,
+    CardComponent,
+    RecommendedComponent,
+    PopularComponent,
+    BudgetComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+.example-card{
+    height: 220px !important;
+}
+
+img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+}
+mat-card-content{
+    margin-top: 10px !important;
+}
+h5{
+    font-size: 14px !important;
+    padding: 0rem !important;
+    margin: 0rem !important;
+}
+p{
+    text-align: start !important;
+    padding: 0rem;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+mat-icon{
+    font-size: 20px !important;
+}

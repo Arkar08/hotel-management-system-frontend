@@ -22,6 +22,9 @@ import { CustomerOrderComponent } from './pages/customer/customer-order/customer
 import { CustomerTransactionComponent } from './pages/customer/customer-transaction/customer-transaction.component';
 import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
 import { CustomerNavbarComponent } from './layout/customer-navbar/customer-navbar.component';
+import { RecommendedComponent } from './component/recommended/recommended.component';
+import { PopularComponent } from './component/popular/popular.component';
+import { BudgetComponent } from './component/budget/budget.component';
 
 const routes: Routes = [
   {
@@ -78,10 +81,6 @@ const routes: Routes = [
         path:'receptionist/orderList',
         component:StaffOrderComponent
       },
-      {
-        path:'logout',
-        component:LogoutComponent
-      }
     ]
   },
   {
@@ -107,8 +106,24 @@ const routes: Routes = [
       {
         path:'customer/profile',
         component:CustomerProfileComponent
+      },
+      {
+        path:'customer/recommended',
+        component:RecommendedComponent
+      },
+      {
+        path:'customer/popular',
+        component:PopularComponent
+      },
+      {
+        path:'customer/budget',
+        component:BudgetComponent
       }
     ]
+  },
+  {
+    path:'auth/logout',
+    component:LogoutComponent
   },
   {
     path:'**',
