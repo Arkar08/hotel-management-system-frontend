@@ -1,0 +1,19 @@
+input{
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+}
+.inputBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.middleBox{
+    margin-top: 1rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    gap: 10px;
+}

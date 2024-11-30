@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+p{
+    font-size: 18px !important;
+}
+.middleCard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 1rem;
+    gap: 10px;
+}
