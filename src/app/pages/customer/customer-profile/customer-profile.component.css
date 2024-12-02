@@ -1,0 +1,45 @@
+.home{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h3{
+    font-size: 18px !important;
+}
+.header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 5px !important;
+}
+.mat-mdc-fab.mat-accent, .mat-mdc-mini-fab.mat-accent {
+    --mdc-fab-container-color: blue !important;
+}
+.mat-mdc-fab, .mat-mdc-mini-fab {
+    font-size: 12px !important;
+}
+mat-icon{
+    font-size: 18px !important;
+}
+.mdc-fab--extended {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    height: 40px !important;
+}
+.inputBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 20px;
+}
+input{
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px;
+}

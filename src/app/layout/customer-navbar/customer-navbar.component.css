@@ -26,3 +26,6 @@ img{
     height: calc(100% - 20%);
     overflow: auto;
 }
+span{
+    color: green;
+}

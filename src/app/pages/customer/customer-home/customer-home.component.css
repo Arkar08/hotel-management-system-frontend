@@ -6,10 +6,10 @@ span{
     width: 100vw;
 }
 h3{
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 h4{
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 .searchBox{
     display: flex;
@@ -17,7 +17,7 @@ h4{
 }
 .inputBox{
     position: relative;
-    width: 300px;
+    width: 90%;
     height: 50px;
 }
 .icon{
@@ -29,7 +29,7 @@ h4{
 input{
     width: 100%;
     height: 100%;
-    padding: 0px 40px;
+    padding: 0px 30px;
     outline: none;
     border-radius: 5px;
     border: none;
