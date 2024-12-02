@@ -27,19 +27,20 @@ mat-icon{
     padding-right: 10px !important;
     height: 40px !important;
 }
-.inputBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+mat-form-field{
+    width: 90%;
+    margin:1rem;
+}
+.footer{
+    margin-top: 1rem;   
+    margin-bottom: 1rem;
+}
+button{
+    width: 100%;
+}
+.logout{
     width: 90%;
     margin-left: 1rem;
-    margin-top: 1rem;
-    flex-direction: column;
-    gap: 20px;
-}
-input{
-    width: 100%;
-    border-radius: 5px;
-    height: 40px;
-    padding: 10px;
+    text-transform: uppercase;
 }

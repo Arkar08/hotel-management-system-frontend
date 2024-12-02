@@ -8,11 +8,39 @@
     </button>
 </div>
 <div class="inputBox">
-    <input type="text" placeholder="FullName" matInput>
-    <input type="text" placeholder="Email" matInput>
-    <input type="text" placeholder="Password" matInput>
-    <input type="number" placeholder="PhNo" matInput>
-    <input type="text" placeholder="NRCNo" matInput>
-    <input type="text" placeholder="State" matInput>
-    <input type="text" placeholder="Township" matInput>
+    <mat-form-field>
+        <mat-label>FullName</mat-label>
+        <input type="text" placeholder="FullName" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" placeholder="Email" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="text" placeholder="Password" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ph Number</mat-label>
+        <input type="number" placeholder="PhNo" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>NRC No</mat-label>
+        <input type="text" placeholder="NRCNo" matInput>
+    </mat-form-field>
+    <mat-form-field>
+            <mat-label>State</mat-label>
+        <mat-select (selectionChange)="stateChange($event)">
+            <mat-option *ngFor="let state of allState" [value]="state.StateCode">{{state.StateName}}</mat-option>
+         </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+            <mat-label>Township</mat-label>
+        <mat-select [disabled]="disable">
+            <mat-option *ngFor="let township of choiceTownship" [value]="township.TownshipCode">{{township.TownshipName}}</mat-option>
+         </mat-select>
+    </mat-form-field>
+</div>
+<div class="footer">
+    <button mat-raised-button class="logout" (click)="logout()">Logout</button>
 </div>

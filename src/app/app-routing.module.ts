@@ -81,6 +81,10 @@ const routes: Routes = [
         path:'receptionist/orderList',
         component:StaffOrderComponent
       },
+      {
+        path:'logout',
+        component:LogoutComponent
+      },
     ]
   },
   {
@@ -120,10 +124,6 @@ const routes: Routes = [
         component:BudgetComponent
       }
     ]
-  },
-  {
-    path:'auth/logout',
-    component:LogoutComponent
   },
   {
     path:'**',
