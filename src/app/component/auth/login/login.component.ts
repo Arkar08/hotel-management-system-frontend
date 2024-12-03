@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('admin/dashboard')
       }else if(this.loginData.role === 'customer'){
         localStorage.setItem('role','customer')
+        localStorage.setItem('userId',this.loginData._id)
         this.router.navigateByUrl('customer/home')
       }
     },error=>{

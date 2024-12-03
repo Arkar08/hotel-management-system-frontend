@@ -2,7 +2,7 @@
     <h3>User Profile</h3>
 </div>
 <div class="header">
-    <button mat-fab extended>
+    <button mat-fab extended (click)="edit()" *ngIf="isActive">
         <mat-icon>edit</mat-icon>
         Edit
     </button>
@@ -10,36 +10,46 @@
 <div class="inputBox">
     <mat-form-field>
         <mat-label>FullName</mat-label>
-        <input type="text" placeholder="FullName" matInput>
+        <input type="text" placeholder="FullName" matInput [disabled]="isActive" [(ngModel)]="allUser.fullName">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="text" placeholder="Email" matInput>
+        <input type="text" placeholder="Email" matInput [disabled]="isActive" [(ngModel)]="allUser.email">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="text" placeholder="Password" matInput>
+        <input type="text" placeholder="Password" matInput [disabled]="isActive" [(ngModel)]="allUser.password">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field [hidden]="isActive">
         <mat-label>Ph Number</mat-label>
-        <input type="number" placeholder="PhNo" matInput>
+        <input type="number" placeholder="PhNo" matInput [(ngModel)]="allUser.phNo">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field [hidden]="isActive">
         <mat-label>NRC No</mat-label>
-        <input type="text" placeholder="NRCNo" matInput>
+        <input type="text" placeholder="NRCNo" matInput [(ngModel)]="allUser.NRCNO">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field [hidden]="isActive">
             <mat-label>State</mat-label>
-        <mat-select (selectionChange)="stateChange($event)">
-            <mat-option *ngFor="let state of allState" [value]="state.StateCode">{{state.StateName}}</mat-option>
+        <mat-select (selectionChange)="stateChange($event)" [(ngModel)]="allUser.state">
+            <mat-option *ngFor="let state of allState" [value]="state.StateName">{{state.StateName}}</mat-option>
          </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field [hidden]="isActive">
             <mat-label>Township</mat-label>
-        <mat-select [disabled]="disable">
-            <mat-option *ngFor="let township of choiceTownship" [value]="township.TownshipCode">{{township.TownshipName}}</mat-option>
+        <mat-select [disabled]="disable" [(ngModel)]="allUser.township">
+            <mat-option *ngFor="let township of choiceTownship" [value]="township.TownshipName">{{township.TownshipName}}</mat-option>
          </mat-select>
     </mat-form-field>
+    <div *ngIf="!isActive" class="hidden">
+        <button mat-fab extended class="cancel" (click)="cancel()">
+            <mat-icon>close</mat-icon>
+            <span>Cancel</span>
+        </button>
+        <button mat-fab extended class="save" (click)="save()">
+            <mat-icon>check</mat-icon>
+            <span>Save</span>
+        </button>
+    </div>
 </div>
 <div class="footer">
     <button mat-raised-button class="logout" (click)="logout()">Logout</button>

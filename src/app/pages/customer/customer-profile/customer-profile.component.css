@@ -8,9 +8,7 @@ h3{
     font-size: 18px !important;
 }
 .header{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    width: 100%;
     padding: 0px 5px !important;
 }
 .mat-mdc-fab.mat-accent, .mat-mdc-mini-fab.mat-accent {
@@ -25,7 +23,7 @@ mat-icon{
 .mdc-fab--extended {
     padding-left: 10px !important;
     padding-right: 10px !important;
-    height: 40px !important;
+    height: 35px !important;
 }
 
 mat-form-field{
@@ -43,4 +41,15 @@ button{
     width: 90%;
     margin-left: 1rem;
     text-transform: uppercase;
+}
+.hidden{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.save{
+    width: 40%;
+}
+.cancel{
+    width: 40%;
 }
