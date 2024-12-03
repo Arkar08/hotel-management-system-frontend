@@ -18,7 +18,14 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="text" placeholder="Password" matInput [disabled]="isActive" [(ngModel)]="allUser.password">
+        <input type="text" placeholder="Password" matInput [disabled]="isActive" [(ngModel)]="Password">
+    </mat-form-field>
+    <mat-form-field [hidden]="isActive">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="allUser.gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+        </mat-select>
     </mat-form-field>
     <mat-form-field [hidden]="isActive">
         <mat-label>Ph Number</mat-label>

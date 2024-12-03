@@ -15,10 +15,12 @@ export class CustomerProfileComponent implements OnInit {
   disable:boolean = true;
   choiceTownship:any[]=[]
   isActive:boolean = true;
+  Password:string = ''
   allUser ={
     fullName:'',
     email:'',
     password:'',
+    gender:'',
     phNo:'',
     NRCNO:'',
     state:'',
@@ -30,6 +32,7 @@ export class CustomerProfileComponent implements OnInit {
       this.getTownship()
       this.getUserProfile()
   }
+
   logout(){
     const role = localStorage.getItem('role')
     this.service.postData('users/logout',role).subscribe((res:any)=>{
@@ -83,10 +86,10 @@ export class CustomerProfileComponent implements OnInit {
     this.isActive = false;
     this.disable = false;
     const stateCode = this.allState.filter((state)=>{
-      return state.StateName === this.allUser.state;
+      return state.StateName === this.allUser?.state;
     })
     this.choiceTownship = this.allTownship.filter((township)=>{
-      return township.StateCode === stateCode[0].StateCode;
+      return township.StateCode === stateCode[0]?.StateCode;
     })
   }
 
@@ -103,19 +106,18 @@ export class CustomerProfileComponent implements OnInit {
   save(){
     const userId = localStorage.getItem('userId')
     const stateCode = this.allState.filter((state)=>{
-      return state.StateName === this.allUser.state
+      return state.StateName === this.allUser?.state
     })
-    const state = stateCode[0].StateCode
+    const state = stateCode[0]?.StateCode
     const townshipCode = this.allTownship.filter((township)=>{
-      return township.TownshipName === this.allUser.township
+      return township.TownshipName === this.allUser?.township
     })
-
-    const township = townshipCode[0].TownshipCode
-
+    const township = townshipCode[0]?.TownshipCode
     this.allUser = {
       fullName:this.allUser.fullName,
       email:this.allUser.email,
-      password:this.allUser.password,
+      password:this.Password,
+      gender:this.allUser.gender,
       phNo:this.allUser.phNo,
       NRCNO:this.allUser.NRCNO,
       state:state,
