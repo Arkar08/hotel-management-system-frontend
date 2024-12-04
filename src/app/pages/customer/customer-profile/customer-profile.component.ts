@@ -15,11 +15,9 @@ export class CustomerProfileComponent implements OnInit {
   disable:boolean = true;
   choiceTownship:any[]=[]
   isActive:boolean = true;
-  Password:string = ''
   allUser ={
     fullName:'',
     email:'',
-    password:'',
     gender:'',
     phNo:'',
     NRCNO:'',
@@ -116,7 +114,6 @@ export class CustomerProfileComponent implements OnInit {
     this.allUser = {
       fullName:this.allUser.fullName,
       email:this.allUser.email,
-      password:this.Password,
       gender:this.allUser.gender,
       phNo:this.allUser.phNo,
       NRCNO:this.allUser.NRCNO,
@@ -135,5 +132,9 @@ export class CustomerProfileComponent implements OnInit {
     },error=>{
       console.log(error  , 'patch data error is')
     })
+  }
+
+  changePassword(){
+    this.router.navigateByUrl('customer/changePassword')
   }
 }

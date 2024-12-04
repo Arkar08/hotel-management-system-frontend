@@ -2,7 +2,11 @@
     <div class="main">
         <h4>Hotel Management System</h4>
         <form>
-            <h3>Login</h3>
+            <h3>Signup</h3>
+                <mat-form-field>
+                    <mat-label>FullName</mat-label>
+                    <input type="text" matInput placeholder="FullName" [(ngModel)]="fullName" name="fullName" autocomplete="off">
+                </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input type="text" matInput placeholder="example@gmail.com" [(ngModel)]="email" name="email" autocomplete="off">
@@ -12,9 +16,16 @@
                     <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [(ngModel)]="password" name="password" autocomplete="off">
                     <mat-icon class="icon" (click)="view()">{{hide ? "visibility_off":"visibility" }}</mat-icon>
                 </mat-form-field>
-            <p>Don't have an account? <a class="signup" routerLink="/auth/signup">Signup</a></p>
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select (selectionChange)="changeGender($event)">
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            <p>Already have an account? <a class="signup" routerLink="/auth/login">Login</a></p>
             <div class="btn">
-                <button mat-raised-button (click)="login()">Login</button>
+                <button mat-raised-button (click)="signup()">Signup</button>
             </div>
         </form>
     </div>

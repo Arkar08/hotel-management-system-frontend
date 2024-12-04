@@ -1,14 +1,15 @@
-<mat-toolbar>
-    <h3>Hotel <span>Booking</span></h3>
-    <div class="profile">
-        <mat-icon>notifications</mat-icon>
-        <img [src]="user?.profileImage" alt="profile">
+
+    <mat-toolbar>
+        <h3>Hotel <span>Booking</span></h3>
+        <div class="profile">
+            <mat-icon>notifications</mat-icon>
+            <img [src]="user?.profileImage" alt="profile">
+        </div>
+    </mat-toolbar>
+    
+    <div class="view">
+        <router-outlet></router-outlet>
     </div>
-</mat-toolbar>
-
-<div class="view">
-    <router-outlet></router-outlet>
-</div>
-
-
-<app-customer-footerbar></app-customer-footerbar>
+    
+    
+    <app-customer-footerbar></app-customer-footerbar>

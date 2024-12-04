@@ -48,6 +48,8 @@ import { CardComponent } from './component/card/card.component';
 import { RecommendedComponent } from './component/recommended/recommended.component';
 import { PopularComponent } from './component/popular/popular.component';
 import { BudgetComponent } from './component/budget/budget.component';
+import { SignupComponent } from './component/signup/signup.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { BudgetComponent } from './component/budget/budget.component';
     RecommendedComponent,
     PopularComponent,
     BudgetComponent,
+    SignupComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

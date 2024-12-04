@@ -25,6 +25,8 @@ import { CustomerNavbarComponent } from './layout/customer-navbar/customer-navba
 import { RecommendedComponent } from './component/recommended/recommended.component';
 import { PopularComponent } from './component/popular/popular.component';
 import { BudgetComponent } from './component/budget/budget.component';
+import { SignupComponent } from './component/signup/signup.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,10 @@ const routes: Routes = [
   {
     path:'auth/login',
     component:LoginComponent
+  },
+  {
+    path:'auth/signup',
+    component:SignupComponent
   },
   {
     path:'',
@@ -122,6 +128,10 @@ const routes: Routes = [
       {
         path:'customer/budget',
         component:BudgetComponent
+      },
+      {
+        path:'customer/changePassword',
+        component:ChangePasswordComponent
       }
     ]
   },
