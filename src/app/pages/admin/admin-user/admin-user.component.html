@@ -44,17 +44,22 @@
       
         <ng-container matColumnDef="phNo">
           <th mat-header-cell *matHeaderCellDef> Contact Number </th>
-          <td mat-cell *matCellDef="let element"> {{element.phNo}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.phNo || '-'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="NRCNO">
             <th mat-header-cell *matHeaderCellDef> NRC NO. </th>
-            <td mat-cell *matCellDef="let element"> {{element.NRCNO}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.NRCNO || '-'}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="address">
-            <th mat-header-cell *matHeaderCellDef> Address </th>
-            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef> State </th>
+            <td mat-cell *matCellDef="let element"> {{element.state || '-'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="township">
+            <th mat-header-cell *matHeaderCellDef> Township </th>
+            <td mat-cell *matCellDef="let element"> {{element.township || '-'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="date">

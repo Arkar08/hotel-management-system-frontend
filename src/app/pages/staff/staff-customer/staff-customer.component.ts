@@ -13,7 +13,8 @@ export interface PeriodicElement {
   email: string;
   phNo:string;
   NRCNO:string;
-  address:string;
+  state:string;
+  township:string;
   date:string;
   role:string;
 }
@@ -32,7 +33,7 @@ export class StaffCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
   }
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','action'];
+  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','state','township','date','role','action'];
   dataSource :any;
 
   filter(){

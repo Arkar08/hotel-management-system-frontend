@@ -26,3 +26,8 @@ mat-icon{
     box-shadow: 1px 1px 3px black;
     margin:5px 0px;
 }
+.image{
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+}

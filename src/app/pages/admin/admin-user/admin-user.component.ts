@@ -12,7 +12,8 @@ export interface PeriodicElement {
   email: string;
   phNo:string;
   NRCNO:string;
-  address:string;
+  state:string;
+  township:string;
   date:string;
   isActive:boolean;
   role:string;
@@ -48,7 +49,7 @@ export class AdminUserComponent implements OnInit {
     this.getUser()
   }
 
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','address','date','role','isActive','action'];
+  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','state','township','date','role','isActive','action'];
   dataSource:any;
 
 

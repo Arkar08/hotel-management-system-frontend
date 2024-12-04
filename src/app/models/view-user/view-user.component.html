@@ -9,7 +9,7 @@
         </div>
         <div class="col">
             <div class="image_container">
-                <div class="images"></div>
+                <img [src]="userList.profileImage" alt="profile">
             </div>
         </div>
     </div>
@@ -31,20 +31,28 @@
         <div class="col">
             <div class="header">
                 <label>NRC:</label>
-                <input type="text" [value]="userList.NRCNO" disabled>
+                <input type="text" [value]="userList.NRCNO || ''" disabled>
             </div>
         </div>
         <div class="col">
             <div class="header">
                 <label>Contact Number:</label>
-                <input type="text" [value]="userList.phNo" disabled>
+                <input type="text" [value]="userList.phNo || ''" disabled>
             </div>
         </div>
     </div>
-    <div class="row row-cols-1">
-        <div class="header">
-            <label>Address:</label>
-            <input type="text" [value]="userList.address" disabled>
+    <div class="row row-cols-2">
+        <div class="col">
+            <div class="header">
+                <label>State:</label>
+                <input type="text" [value]="userList.state || ''" disabled>
+            </div>
+        </div>
+        <div class="col">
+            <div class="header">
+                <label>Township:</label>
+                <input type="text" [value]="userList.township || ''" disabled>
+            </div>
         </div>
     </div>
     <div class="print">
