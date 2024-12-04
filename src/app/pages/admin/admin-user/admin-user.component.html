@@ -4,7 +4,7 @@
         <div>
             <mat-icon>search</mat-icon>
             <mat-icon matTooltip="Filter" (click)="filter()">filter_alt</mat-icon>
-            <mat-icon>download_2</mat-icon>
+            <mat-icon (click)="download()">download_2</mat-icon>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
     </div>
 
     <div class="middle" *ngIf="!loading">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="table-to-pdf">
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> No. </th>
           <td mat-cell *matCellDef="let element"> {{element.id}} </td>

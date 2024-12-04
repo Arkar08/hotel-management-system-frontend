@@ -4,6 +4,8 @@ import { ViewUserComponent } from './../../../models/view-user/view-user.compone
 import { FilterUserComponent } from './../../../models/filter-user/filter-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
 
 export interface PeriodicElement {
   fullName: string;
@@ -127,6 +129,19 @@ export class AdminUserComponent implements OnInit {
   
   generateTable(data:any){
     this.dataSource = new MatTableDataSource<PeriodicElement>(data)
+  }
+
+  download(){
+    const doc = new jsPDF();
+    autoTable(doc, { html: '#table-to-pdf'})
+    // const content = 'UserDetails';
+    // doc.text(content,10,10)
+    // const pdf = doc.output('blob');
+    // const link = document.createElement('a');
+    // link.href = URL.createObjectURL(pdf);
+    // link.download = 'Customer.pdf'; // Specify the filename
+    // link.click(); 
+    doc.save('table.pdf')
   }
 
 
