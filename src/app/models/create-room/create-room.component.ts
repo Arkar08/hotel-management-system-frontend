@@ -67,7 +67,7 @@ export class CreateRoomComponent implements OnInit {
 
   saveRoom(){
       this.roomDetails = {
-        title:this.titleName,
+        title:this.titleName.toLowerCase(),
         price:Number(this.price),
         description:this.description,
         maxPeople:Number(this.maxPeople),

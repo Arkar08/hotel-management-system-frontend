@@ -1,10 +1,14 @@
 <div>
     <div class="inputBox">
-        <input type="text" matInput placeholder="Search Room">
+        <input type="text" matInput placeholder="Search Room" (keyup)="inputChange($event)">
+        <button mat-icon-button (click)="searching()" class="button">
+            <mat-icon>search_alt</mat-icon>
+        </button>
     </div>
-    <div class="middleBox">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+    <div *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+    <div class="middleBox" *ngIf="!isLoading">
+        <app-card *ngFor="let room of allRoom" [image]="room.images" [price]="room.price" [title]="room.title" [maxPeople]="room.maxPeople"></app-card>
     </div>    
 </div>
