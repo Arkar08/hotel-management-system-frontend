@@ -36,16 +36,14 @@ input{
     background-color: whitesmoke;
 }
 .headerBox{
-    margin-top: 20px;
-}
-.middleBox{
-    height: 300px;
+    margin-top: 10px;
 }
 .box{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0rem 1rem;
+    padding: 0rem 0.5rem !important;
+    margin: 5px 0px !important;
 }
 .cardBox{
     display: grid;

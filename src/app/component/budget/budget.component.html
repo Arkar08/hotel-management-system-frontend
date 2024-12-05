@@ -5,9 +5,10 @@
         </button>
         <p>Budget List</p>
     </div>
-    <div class="middleCard">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+    <div *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+    <div class="middleCard" *ngIf="!isLoading">
+        <app-card *ngFor="let budget of allBudgetList" [title]="budget.title" [maxPeople]="budget.maxPeople" [price]="budget.price" [image]="budget.images"></app-card>
     </div>
 </div>

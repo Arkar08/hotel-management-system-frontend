@@ -1,10 +1,11 @@
 <mat-card class="example-card" appearance="outlined">
-    <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image [src]="image" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <h5>The Shiba Inu is</h5>
+      <h5>{{title}}</h5>
+      <h4>price - {{price}}Ks</h4>
       <p>
         <mat-icon>person</mat-icon>
-        <span>4</span>
+        <span>{{maxPeople}}</span>
       </p>
     </mat-card-content>
 </mat-card>

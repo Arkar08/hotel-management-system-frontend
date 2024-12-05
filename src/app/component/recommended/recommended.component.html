@@ -5,9 +5,10 @@
         </button>
         <p>Recommended List</p>
     </div>
-    <div class="middleCard">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+    <div *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+    <div class="middleCard" *ngIf="!isLoading">
+        <app-card *ngFor="let recommended of allRecommendedList" [title]="recommended.title" [maxPeople]="recommended.maxPeople" [price]="recommended.price" [image]="recommended.images"></app-card>
     </div>
 </div>

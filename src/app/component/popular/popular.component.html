@@ -5,9 +5,10 @@
         </button>
         <p>Popular List</p>
     </div>
-    <div class="middleCard">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+    <div *ngIf="isloading">
+        <app-loading></app-loading>
+    </div>
+    <div class="middleCard" *ngIf="!isloading">
+        <app-card *ngFor="let popular of allPopularList" [title]="popular.title" [maxPeople]="popular.maxPeople" [price]="popular.price" [image]="popular.images"></app-card>
     </div>
 </div>

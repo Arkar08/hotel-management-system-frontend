@@ -18,8 +18,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card></app-card>
-                <app-card></app-card>
+                <app-card *ngFor="let recommended of recommendLists" [maxPeople]="recommended.maxPeople"></app-card>
             </div>
         </div>
         <div class="middleBox">
@@ -30,8 +29,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card></app-card>
-                <app-card></app-card>
+                <app-card *ngFor="let popular of popularList" [maxPeople]="popular.maxPeople"></app-card>
             </div>
         </div>
         <div class="middleBox">
@@ -42,8 +40,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card></app-card>
-                <app-card></app-card>
+                <app-card *ngFor="let budget of budgetList" [maxPeople]="budget.maxPeople"></app-card>
             </div>
         </div>
     </div>
