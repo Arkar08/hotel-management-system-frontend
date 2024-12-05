@@ -9,8 +9,11 @@
             <mat-icon>filter_list</mat-icon>
         </button>
     </div>
-    <div class="headerBox">
-        <div class="middleBox">
+    <div *ngIf="isloading">
+        <app-loading></app-loading>
+    </div>
+    <div class="headerBox" *ngIf="!isloading">
+        <div class="middleBox" >
             <div class="box">
                 <h4>Recommended</h4>
                 <button mat-icon-button routerLink="/customer/recommended">
@@ -18,7 +21,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card *ngFor="let recommended of recommendLists" [maxPeople]="recommended.maxPeople"></app-card>
+                <app-card *ngFor="let recommended of recommendLists" [maxPeople]="recommended.maxPeople" [price]="recommended.price" [title]="recommended.title" [image]="recommended.images"></app-card>
             </div>
         </div>
         <div class="middleBox">
@@ -29,7 +32,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card *ngFor="let popular of popularList" [maxPeople]="popular.maxPeople"></app-card>
+                <app-card *ngFor="let popular of popularList" [maxPeople]="popular.maxPeople" [image]="popular.images" [price]="popular.price" [title]="popular.title"></app-card>
             </div>
         </div>
         <div class="middleBox">
@@ -40,7 +43,7 @@
                 </button>
             </div>
             <div class="cardBox">
-                <app-card *ngFor="let budget of budgetList" [maxPeople]="budget.maxPeople"></app-card>
+                <app-card *ngFor="let budget of budgetList" [maxPeople]="budget.maxPeople" [image]="budget.images" [price]="budget.price" [title]="budget.title"></app-card>
             </div>
         </div>
     </div>

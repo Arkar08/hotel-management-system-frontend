@@ -11,6 +11,7 @@ export class CustomerHomeComponent implements OnInit {
   recommendLists:any[]=[]
   popularList:any[]=[]
   budgetList:any[]=[]
+  isloading:boolean = true;
   constructor(private service:ApiService){}
   ngOnInit(): void {
       this.getRecommended()
@@ -19,24 +20,36 @@ export class CustomerHomeComponent implements OnInit {
   }
 
   getRecommended(){
+    this.isloading = true;
     this.service.getData('staff/singlepage/recommeded').subscribe((res:any)=>{
-      this.recommendLists = res;
+      if(res){
+        this.isloading = false;
+        this.recommendLists = res;
+      }
     },error=>{
       console.log(error , 'getRecommended error is')
     })
   }
 
   getPopular(){
+    this.isloading = true;
     this.service.getData('staff/singlepage/popular').subscribe((res:any)=>{
-      this.popularList = res;
+      if(res){
+        this.isloading = false;
+        this.popularList = res;
+      }
     },error=>{
       console.log(error , 'getRecommended error is')
     })
   }
 
   getBudget(){
+    this.isloading = true;
     this.service.getData('staff/singlepage/budget').subscribe((res:any)=>{
-      this.budgetList = res;
+      if(res){
+        this.isloading = false;
+        this.budgetList = res;
+      }
     },error=>{
       console.log(error , 'getRecommended error is')
     })
