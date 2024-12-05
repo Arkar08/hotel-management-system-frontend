@@ -1,0 +1,24 @@
+
+<button mat-icon-button (click)="arrawBack()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+
+<div class="main" *ngIf="!isLoading">
+    <h3>{{room.title}}</h3>
+    <img [src]="room.images" alt="room-image" class="images">
+    <div class="content">
+        <p>{{room.description}}</p>
+    </div>
+    <div>
+        <h4>Room Number - {{room.roomNumbers}}</h4>
+        <h4>MaxPeople - {{room.maxPeople}}</h4>
+        <h4>Price - {{room.price}}Ks</h4>
+    </div>
+    <div class="actions">
+        <button mat-raised-button class="btn">Booking</button>
+    </div>
+</div>
+
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>

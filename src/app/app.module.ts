@@ -49,7 +49,8 @@ import { RecommendedComponent } from './component/recommended/recommended.compon
 import { PopularComponent } from './component/popular/popular.component';
 import { BudgetComponent } from './component/budget/budget.component';
 import { SignupComponent } from './component/signup/signup.component';
-import { ChangePasswordComponent } from './component/change-password/change-password.component'
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { DetailsComponent } from './component/details/details.component'
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     BudgetComponent,
     SignupComponent,
     ChangePasswordComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

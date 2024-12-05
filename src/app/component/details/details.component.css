@@ -1,0 +1,31 @@
+h3{
+    font-size: 18px !important;
+}
+.main{
+    padding: 10px !important;
+}
+.images{
+    width: 100%;
+}
+.content{
+    margin:10px 0px;
+}
+p{
+    font-size: 20px !important;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+h4{
+    font-size: 14px !important;
+}
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.btn{
+    width: 90%;
+    background-color: blue !important;
+    color: white !important;
+}

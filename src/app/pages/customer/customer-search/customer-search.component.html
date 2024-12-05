@@ -9,6 +9,6 @@
         <app-loading></app-loading>
     </div>
     <div class="middleBox" *ngIf="!isLoading">
-        <app-card *ngFor="let room of allRoom" [image]="room.images" [price]="room.price" [title]="room.title" [maxPeople]="room.maxPeople"></app-card>
+        <app-card *ngFor="let room of allRoom" [image]="room.images" [price]="room.price" [title]="room.title" [maxPeople]="room.maxPeople" [id]="room._id"></app-card>
     </div>    
 </div>

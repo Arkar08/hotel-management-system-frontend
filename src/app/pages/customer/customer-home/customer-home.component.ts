@@ -23,7 +23,6 @@ export class CustomerHomeComponent implements OnInit {
     this.isloading = true;
     this.service.getData('staff/singlepage/recommeded').subscribe((res:any)=>{
       if(res){
-        this.isloading = false;
         this.recommendLists = res;
       }
     },error=>{
@@ -32,7 +31,6 @@ export class CustomerHomeComponent implements OnInit {
   }
 
   getPopular(){
-    this.isloading = true;
     this.service.getData('staff/singlepage/popular').subscribe((res:any)=>{
       if(res){
         this.isloading = false;
@@ -44,10 +42,8 @@ export class CustomerHomeComponent implements OnInit {
   }
 
   getBudget(){
-    this.isloading = true;
     this.service.getData('staff/singlepage/budget').subscribe((res:any)=>{
       if(res){
-        this.isloading = false;
         this.budgetList = res;
       }
     },error=>{

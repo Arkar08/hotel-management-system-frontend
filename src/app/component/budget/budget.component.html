@@ -9,6 +9,6 @@
         <app-loading></app-loading>
     </div>
     <div class="middleCard" *ngIf="!isLoading">
-        <app-card *ngFor="let budget of allBudgetList" [title]="budget.title" [maxPeople]="budget.maxPeople" [price]="budget.price" [image]="budget.images"></app-card>
+        <app-card *ngFor="let budget of allBudgetList" [title]="budget.title" [maxPeople]="budget.maxPeople" [price]="budget.price" [image]="budget.images" [id]="budget._id"></app-card>
     </div>
 </div>

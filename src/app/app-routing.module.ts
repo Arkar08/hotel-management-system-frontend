@@ -27,6 +27,7 @@ import { PopularComponent } from './component/popular/popular.component';
 import { BudgetComponent } from './component/budget/budget.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { DetailsComponent } from './component/details/details.component';
 
 const routes: Routes = [
   {
@@ -99,7 +100,11 @@ const routes: Routes = [
     children:[
       {
         path:'customer/home',
-        component:CustomerHomeComponent
+        component:CustomerHomeComponent,
+      },
+      {
+        path:'customer/details/:id',
+        component:DetailsComponent
       },
       {
         path:'customer/search',
