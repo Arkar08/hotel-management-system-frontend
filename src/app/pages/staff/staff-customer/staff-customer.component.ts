@@ -8,7 +8,6 @@ import {MatTableDataSource} from '@angular/material/table'
 
 export interface PeriodicElement {
   fullName: string;
-  id: number;
   profileImage: string;
   email: string;
   phNo:string;
@@ -33,7 +32,7 @@ export class StaffCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
   }
-  displayedColumns: string[] = ['id','profileImage', 'fullName', 'email', 'NRCNO','phNo','state','township','date','role','action'];
+  displayedColumns: string[] = ['profileImage', 'fullName', 'email', 'NRCNO','phNo','state','township','date','role','action'];
   dataSource :any;
 
   filter(){
