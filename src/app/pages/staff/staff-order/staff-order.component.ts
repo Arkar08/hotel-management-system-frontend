@@ -15,7 +15,6 @@ export interface PeriodicElement {
   roomPrice:number;
   maxPeople:number;
   description:string;
-  roomName:string;
 }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
@@ -47,7 +46,7 @@ export class StaffOrderComponent implements OnInit {
     this.getOrder();
   }
 
-  displayedColumns: string[] = ['id','orderNo','customerName','roomName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status','action'];
+  displayedColumns: string[] = ['id','orderNo','customerName', 'roomNumber','roomPrice','maxPeople','startDate','endDate','description','status','action'];
   dataSource:any;
 
   filter(){

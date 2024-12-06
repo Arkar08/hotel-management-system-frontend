@@ -5,91 +5,38 @@
     </button>
 </div>
 <div>
-    <mat-card>
-        <mat-card-header>
-            <p class="status">Approve</p>
+    <mat-card *ngFor="let order of allOrders">
+        <mat-card-header *ngIf="order.status !== 'Pending'">
+            <p class="status" [ngStyle]="{color: order.status === 'Paid'?'#007bff': order.status === 'Reject' ? '#dc3545' : order.status === 'Pending' ? '#ffc107': order.status === 'Cancel' ? 'red':'#28a745'}">{{order.status}}</p>
         </mat-card-header>
-        <div class="middleContent">
-            <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
+                <div class="footerNumber">
+                    <h5 class="roomNumber">RoomNumber - </h5>
+                    <h5 class="roomNumber">{{order.roomNumber}}</h5>
+                </div>
                 <div class="date">
                     <p>From Date</p>
                     <p>To Date</p>
                 </div>
                 <div class="date">
-                    <p>12/12/2024</p>
-                    <p>12/12/2024</p>
+                    <p>{{order.fromDate | date: 'dd/MM/yyyy'}}</p>
+                    <p>{{order.toDate | date: 'dd/MM/yyyy'}}</p>
                 </div>
-                <div class="footer">
-                    <mat-icon>person</mat-icon>
-                    <h5>4</h5>
-                </div>
-                <div class="footer">
-                    <h5>Total -</h5>
-                    <h5>100000</h5>
-                </div>
-            </mat-card-content>
-        </div>
-        <mat-card-actions>
-            <button mat-raised-button class="cancel">Cancel</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <p class="status">Approve</p>
-        </mat-card-header>
-        <div class="middleContent">
-            <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <div class="date">
-                    <p>From Date</p>
-                    <p>To Date</p>
-                </div>
-                <div class="date">
-                    <p>12/12/2024</p>
-                    <p>12/12/2024</p>
-                </div>
-                <div class="footer">
-                    <mat-icon>person</mat-icon>
-                    <h5>4</h5>
-                </div>
-                <div class="footer">
-                    <h5>Total -</h5>
-                    <h5>100000</h5>
+                <div class="mainFooter">
+                    <div class="footer">
+                        <h5>
+                            <mat-icon>person</mat-icon>
+                            <span>{{order.maxPeople}}</span>
+                        </h5>
+                    </div>
+                    <div class="footer">
+                        <h5>Total -</h5>
+                        <h5>{{order.totalPrice}}Ks</h5>
+                    </div>
                 </div>
             </mat-card-content>
-        </div>
-        <mat-card-actions>
-            <button mat-raised-button class="cancel">Cancel</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <p class="status">Approve</p>
-        </mat-card-header>
-        <div class="middleContent">
-            <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <div class="date">
-                    <p>From Date</p>
-                    <p>To Date</p>
-                </div>
-                <div class="date">
-                    <p>12/12/2024</p>
-                    <p>12/12/2024</p>
-                </div>
-                <div class="footer">
-                    <mat-icon>person</mat-icon>
-                    <h5>4</h5>
-                </div>
-                <div class="footer">
-                    <h5>Total -</h5>
-                    <h5>100000</h5>
-                </div>
-            </mat-card-content>
-        </div>
-        <mat-card-actions>
-            <button mat-raised-button class="cancel">Cancel</button>
+        <mat-card-actions *ngIf="order.status === 'Pending'">
+            <button mat-raised-button class="cancel" (click)="cancel(order._id)">Cancel</button>
         </mat-card-actions>
     </mat-card>
 </div>

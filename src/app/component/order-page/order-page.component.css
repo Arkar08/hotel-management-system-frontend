@@ -1,0 +1,28 @@
+
+.order{
+    margin-top: 10px;
+    position: relative;
+}
+
+mat-form-field{
+    width: 100%;
+}
+h3{
+    text-align: center;
+    font-size: 18px !important;
+}
+.main{
+    gap: 5px;
+    padding: 10px;
+}
+.action{
+    padding: 10px;
+    position: fixed;
+    bottom: 10%;
+    width: 100%;
+}
+button{
+    width: 100%;
+    background-color: blue !important;
+    color: white !important;
+}

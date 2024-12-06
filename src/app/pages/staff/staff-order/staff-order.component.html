@@ -29,11 +29,6 @@
             <td mat-cell *matCellDef="let element"> {{element.userId}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="roomName">
-            <th mat-header-cell *matHeaderCellDef>Room Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.roomId}}</td>
-        </ng-container>
-
         <ng-container matColumnDef="roomNumber">
           <th mat-header-cell *matHeaderCellDef> Room Number </th>
           <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
@@ -41,7 +36,7 @@
 
         <ng-container matColumnDef="roomPrice">
             <th mat-header-cell *matHeaderCellDef> Room Price </th>
-            <td mat-cell *matCellDef="let element" class="money"> {{element.roomPrice || '0'}} Ks </td>
+            <td mat-cell *matCellDef="let element" class="money"> {{element.totalPrice || '0'}} Ks </td>
         </ng-container>
 
         <ng-container matColumnDef="maxPeople">
@@ -51,12 +46,12 @@
 
         <ng-container matColumnDef="startDate">
           <th mat-header-cell *matHeaderCellDef> From Date </th>
-          <td mat-cell *matCellDef="let element" class="money">{{element.fromDate || '-'}}  </td>
+          <td mat-cell *matCellDef="let element" class="money">{{element.fromDate || '-' | date:'d MMMM, y, h:mm a'}}  </td>
         </ng-container>
 
         <ng-container matColumnDef="endDate">
             <th mat-header-cell *matHeaderCellDef> To Date </th>
-            <td mat-cell *matCellDef="let element" class="money"> {{element.toDate || '-'}} </td>
+            <td mat-cell *matCellDef="let element" class="money"> {{element.toDate || '-' | date:'d MMMM, y, h:mm a'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="description">
@@ -66,7 +61,7 @@
 
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element" style="color: #ffc107;"> {{element.status}} </td>
+            <td mat-cell *matCellDef="let element" [ngStyle]="{color:element.status === 'Cancel'?'red':'#ffc107'}"> {{element.status}} </td>
         </ng-container> 
         
 

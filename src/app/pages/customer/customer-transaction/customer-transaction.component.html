@@ -5,60 +5,20 @@
     </button>
 </div>
 <div>
-    <mat-card>
+    <mat-card *ngFor="let transaction of allTransactions">
         <mat-card-header>
-            <p class="order">OrderNo - <span>12929392399</span></p>
+            <p class="order" [ngStyle]="{backgroundColor: transaction.paymentType === 'Cash' ? 'hsl(120, 57%, 56%)':'blue'}">{{transaction.paymentType}}</p>
         </mat-card-header>
-        <div class="middleContent">
-            <div>
-                <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
-                <p class="roomNumber">(Room Number - <span>102</span>)</p>
-            </div>
+            <p class="roomNumber">(Room Number - <span>{{transaction.roomNumber}}</span>)</p>
             <mat-card-content>
-                <div class="date">
-                    <p>From Date</p>
-                    <p>To Date</p>
-                </div>
-                <div class="date">
-                    <p>12/12/2024</p>
-                    <p>12/12/2024</p>
-                </div>
                <div class="footer">
-                    <p class="footerContent">Payment - <span>Cash</span></p>
-                    <p class="footerContent">Tax(5%) - <span>1000Ks</span></p>
-                    <p class="footerContent">General Checking - <span>1000Ks</span></p>
+                <p class="footerContent">Payment - <span>{{transaction.orderId}}</span></p>
+                    <p class="footerContent">Payment Date - <span>{{transaction.createdAt | date:'dd/MM/yyyy'}}</span></p>
+                    <p class="footerContent">Tax(5%) - <span>{{transaction.tax}}Ks</span></p>
+                    <p class="footerContent">General Checking - <span>{{transaction.generalChecking}}Ks</span></p>
                     <hr>
-                    <p class="footerContent">Total - <span>100000Ks</span></p>
+                    <p class="footerContent">Total - <span>{{transaction.total}}Ks</span></p>
                </div>
             </mat-card-content>
-        </div>
-    </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <p class="order">OrderNo - <span>12929392399</span></p>
-        </mat-card-header>
-        <div class="middleContent">
-            <div>
-                <img mat-card-image src="assets/images/testImage.jpg" alt="Photo of a Shiba Inu">
-                <p class="roomNumber">(Room Number - <span>102</span>)</p>
-            </div>
-            <mat-card-content>
-                <div class="date">
-                    <p>From Date</p>
-                    <p>To Date</p>
-                </div>
-                <div class="date">
-                    <p>12/12/2024</p>
-                    <p>12/12/2024</p>
-                </div>
-               <div class="footer">
-                    <p class="footerContent">Payment - <span>Cash</span></p>
-                    <p class="footerContent">Tax(5%) - <span>1000Ks</span></p>
-                    <p class="footerContent">General Checking - <span>1000Ks</span></p>
-                    <hr>
-                    <p class="footerContent">Total - <span>100000Ks</span></p>
-               </div>
-            </mat-card-content>
-        </div>
     </mat-card>
 </div>

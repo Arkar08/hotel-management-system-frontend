@@ -1,0 +1,26 @@
+<div class="order">
+    <h3>Select Your Date</h3>
+    <div class="main">
+        <mat-form-field>
+            <mat-label>From Date</mat-label>
+            <input type="text"
+                placeholder="YYYY-MM-DD"
+                bsDatepicker
+                [daysDisabled]="[6,0]"
+                [value]="startDate | date: 'yyyy-MM-dd'"
+                [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="dateChange($event,'fromDate')">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>To Date</mat-label>
+            <input type="text"
+                placeholder="YYYY-MM-DD"
+                bsDatepicker
+                [daysDisabled]="[6,0]"
+                [value]="endDate | date: 'yyyy-MM-dd'"
+                [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD' }" matInput class="date" (bsValueChange)="dateChange($event,'toDate')">
+        </mat-form-field>
+    </div>
+    <div class="action">
+        <button mat-raised-button (click)="booking()">Booking</button>
+    </div>
+</div>

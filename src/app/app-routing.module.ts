@@ -28,6 +28,7 @@ import { BudgetComponent } from './component/budget/budget.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { DetailsComponent } from './component/details/details.component';
+import { OrderPageComponent } from './component/order-page/order-page.component';
 
 const routes: Routes = [
   {
@@ -137,6 +138,10 @@ const routes: Routes = [
       {
         path:'customer/changePassword',
         component:ChangePasswordComponent
+      },
+      {
+        path:'customer/orderbooking',
+        component:OrderPageComponent
       }
     ]
   },

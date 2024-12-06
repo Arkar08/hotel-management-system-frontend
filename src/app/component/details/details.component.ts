@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
+import { OrderPageComponent } from '../order-page/order-page.component';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-details',
@@ -10,11 +12,12 @@ import { ApiService } from 'src/app/service/api.service';
 export class DetailsComponent implements OnInit {
   room:any;
   isLoading:boolean = true;
+  id:string | null = '' ;
 
-  constructor(private router:ActivatedRoute,private service:ApiService,private route:Router){}
+  constructor(private router:ActivatedRoute,private service:ApiService,private route:Router,private dataService:DataService){}
   ngOnInit(): void {
-      const id = this.router.snapshot.paramMap.get('id')
-      this.getRoomId(id)
+       this.id = this.router.snapshot.paramMap.get('id')
+      this.getRoomId(this.id)
   }
 
   getRoomId(data:any){
@@ -31,6 +34,11 @@ export class DetailsComponent implements OnInit {
 
   arrawBack(){
     this.route.navigateByUrl('customer/home')
+  }
+
+  chooseTime(){
+    this.route.navigateByUrl('customer/orderbooking')
+    this.dataService.postData(this.id)
   }
 
 }

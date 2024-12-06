@@ -50,7 +50,8 @@ import { PopularComponent } from './component/popular/popular.component';
 import { BudgetComponent } from './component/budget/budget.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
-import { DetailsComponent } from './component/details/details.component'
+import { DetailsComponent } from './component/details/details.component';
+import { OrderPageComponent } from './component/order-page/order-page.component'
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { DetailsComponent } from './component/details/details.component'
     SignupComponent,
     ChangePasswordComponent,
     DetailsComponent,
+    OrderPageComponent,
   ],
   imports: [
     BrowserModule,

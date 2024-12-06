@@ -16,13 +16,18 @@ mat-card{
 .mat-mdc-card-content:last-child {
     padding-bottom: 0px !important;
 }
+mat-card-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 .order{
     font-size: 14px !important;
-}
-.middleContent{
-    display: flex;
-    justify-content: flex-start;
-    padding: 0.2rem;
+    color: white;
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
 }
 img{
     width: 150px;
@@ -55,4 +60,6 @@ h5{
 .roomNumber{
     text-align: center;
     margin-top: 10px;
+    font-size: 18px !important;
+    font-weight: 400;
 }
